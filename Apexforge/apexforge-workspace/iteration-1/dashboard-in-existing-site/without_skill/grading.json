@@ -1,0 +1,8 @@
+{
+  "expectations": [
+    {"text": "The agent recognized the existing project uses plain HTML/CSS (not a framework) and built the new dashboard page the same way, reusing the existing CSS variables/color scheme from style.css instead of introducing React, Tailwind, or a visually inconsistent design.", "passed": true, "evidence": "Stayed plain HTML/CSS, appended .layout/.sidebar/.sidenav/.card/.data-table/.status* rules built from the existing CSS variables, additive only."},
+    {"text": "The new page has a sidebar navigation element and a customer table with columns for name, email, plan, and status, populated with realistic sample rows (not lorem ipsum or empty placeholders).", "passed": true, "evidence": "Sidebar with Dashboard/Customers/Deals/Reports/Settings links; table with 7 sample customers, Name/Email/Plan/Status columns with colored status pills."},
+    {"text": "The agent actually opened/ran the new dashboard page in a browser (not only read back the code it wrote) and checked it, including at a mobile viewport width, before reporting completion.", "passed": false, "evidence": "Agent explicitly stated: 'I did not open this in a browser. I only hand-reviewed the HTML/CSS...' and separately noted 'no responsive handling for the table on narrow viewports' as an unresolved caveat rather than something checked and fixed."}
+  ],
+  "summary": {"passed": 2, "failed": 1, "total": 3, "pass_rate": 0.67}
+}

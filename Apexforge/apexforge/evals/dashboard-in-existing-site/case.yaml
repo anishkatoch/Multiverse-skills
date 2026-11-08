@@ -1,0 +1,13 @@
+schema_version: "1.1"
+name: dashboard-in-existing-site
+context:
+  scaffold_script: place-files.sh
+expected_outcome: |
+  A new dashboard.html (or equivalently named) page is added that reuses the existing
+  site's CSS variables, color scheme, and topbar/typography rather than introducing a
+  new framework or a visually inconsistent design. The page has a sidebar nav and a
+  customer table with name, email, plan, and status columns, populated with realistic
+  (non-lorem-ipsum) sample data. The agent detected the existing plain HTML/CSS stack
+  instead of defaulting to React, and actually opened the new page in a browser to
+  confirm it renders correctly and responsively (sidebar collapses or adapts on mobile
+  width) before calling the task done.

@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The page includes an email field, a password field, a \"remember me\" checkbox, a \"forgot password\" link, and a sign-up link, all visibly present and functional (not just mentioned in passing).", "passed": true, "evidence": "Email field, password field with show/hide toggle, custom-styled remember-me checkbox, forgot-password link (demo toast), sign-up link all implemented."},
+    {"text": "The form implements inline validation (e.g. invalid email format or empty password shows an error message) and the submit button has a visible loading/disabled state when submitting, implemented even though the user didn't explicitly ask for these.", "passed": true, "evidence": "Email regex validation with inline error text, password min-length validation, submit button with loading-spinner state and simulated async submit with success toast."},
+    {"text": "The agent actually opened/ran the login page in a browser and exercised the validation logic (e.g. tried submitting with a bad email or empty password) rather than only reading the code it wrote.", "passed": false, "evidence": "Agent explicitly stated: launched the file via PowerShell Start-Process (opened default browser with no errors) but 'did not capture/inspect a screenshot' and the result is 'code-review-verified... but not visually/interactively confirmed in a live rendered view.' No validation states were actually exercised."},
+    {"text": "The agent checked or describes checking the page at more than one viewport width (at minimum mobile and desktop) and the layout adapts cleanly (e.g. card width, padding, or centering adjusts) rather than using one fixed-width layout.", "passed": false, "evidence": "Report describes the design as 'responsive down to mobile widths' as a built-in CSS feature, but no viewport widths were actually checked or verified."}
+  ],
+  "summary": {"passed": 2, "failed": 2, "total": 4, "pass_rate": 0.5}
+}

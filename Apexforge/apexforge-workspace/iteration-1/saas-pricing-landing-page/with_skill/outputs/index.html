@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pricing - Flowstack</title>
+<meta name="description" content="Simple, transparent pricing for Flowstack - the workflow automation tool built for small teams." />
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,420..700;1,9..144,420..600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#pricing">Skip to pricing</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="logo" aria-label="Flowstack home">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="6" cy="14" r="3.4" fill="#C9542F"/>
+        <circle cx="22" cy="6" r="3.4" fill="#14213D"/>
+        <circle cx="22" cy="22" r="3.4" fill="#14213D"/>
+        <path d="M9 13 L19 7" stroke="#14213D" stroke-width="1.6"/>
+        <path d="M9 15 L19 21" stroke="#14213D" stroke-width="1.6"/>
+      </svg>
+      <span>Flowstack</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#" class="btn btn-ghost">Log in</a>
+      <a href="#pricing" class="btn btn-primary">Start free trial</a>
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <hr>
+    <a href="#" class="btn btn-ghost btn-block">Log in</a>
+    <a href="#pricing" class="btn btn-primary btn-block">Start free trial</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO / TOP CTA ============ -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">For teams of 3 to 300</p>
+        <h1>Stop stitching tools together by hand.<br>Let Flowstack run the busywork.</h1>
+        <p class="hero-sub">
+          Flowstack connects the apps your small team already uses - inbox, sheets, CRM, chat - and
+          automates the handoffs between them. No engineers required, no brittle Zaps, no 2am "why did this break" Slack messages.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#pricing" class="btn btn-primary btn-lg">Start your 14-day free trial</a>
+          <a href="#demo" class="btn btn-outline btn-lg" id="demoBtn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 2.5L13 8L4 13.5V2.5Z" fill="currentColor"/></svg>
+            Watch 2-min demo
+          </a>
+        </div>
+        <ul class="hero-trust">
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> No credit card to start</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Cancel anytime</li>
+          <li><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Set up your first workflow in 10 minutes</li>
+        </ul>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="flow-card">
+          <div class="flow-card-head">
+            <span class="dot dot-red"></span><span class="dot dot-amber"></span><span class="dot dot-green"></span>
+            <span class="flow-card-title">New lead → onboarding</span>
+          </div>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-step-icon icon-trigger">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v6M8 1L5 4M8 1l3 3" stroke="#C9542F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="12" height="5" rx="1.5" stroke="#C9542F" stroke-width="1.5"/></svg>
+              </div>
+              <div>
+                <p class="flow-step-label">Trigger</p>
+                <p class="flow-step-text">Form submitted on your site</p>
+              </div>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step">
+              <div class="flow-step-icon icon-action">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#14213D" stroke-width="1.5"/><path d="M5 8h6M5 5.5h6M5 10.5h3" stroke="#14213D" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+              <div>
+                <p class="flow-step-label">Action</p>
+                <p class="flow-step-text">Create record in CRM</p>
+              </div>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step">
+              <div class="flow-step-icon icon-branch">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="4" cy="8" r="1.6" stroke="#9B5DE5" stroke-width="1.4"/><path d="M5.6 8h2.4M8 8l3-3.5M8 8l3 3.5" stroke="#9B5DE5" stroke-width="1.4" stroke-linecap="round"/><circle cx="12" cy="4.5" r="1" fill="#9B5DE5"/><circle cx="12" cy="11.5" r="1" fill="#9B5DE5"/></svg>
+              </div>
+              <div>
+                <p class="flow-step-label">Condition</p>
+                <p class="flow-step-text">If deal size &gt; $5k</p>
+              </div>
+            </div>
+            <div class="flow-connector"></div>
+            <div class="flow-step flow-step-done">
+              <div class="flow-step-icon icon-done">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <div>
+                <p class="flow-step-label">Notify</p>
+                <p class="flow-step-text">Ping #sales in Slack</p>
+              </div>
+            </div>
+          </div>
+          <div class="flow-card-foot">
+            <span class="run-pulse"></span> Ran 2 minutes ago · 0.4s
+          </div>
+        </div>
+        <div class="float-chip float-chip-1">
+          <strong>312</strong><span>runs today</span>
+        </div>
+        <div class="float-chip float-chip-2">
+          <strong>99.95%</strong><span>uptime</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LOGO / TRUST STRIP ============ -->
+  <section class="trust-strip">
+    <div class="wrap">
+      <p>Trusted by lean teams who'd rather build their product than babysit spreadsheets</p>
+      <ul class="trust-logos">
+        <li>Northwind Studio</li>
+        <li>Pebble &amp; Co.</li>
+        <li>Harborline</li>
+        <li>Fernweh Labs</li>
+        <li>Groundwork</li>
+        <li>Saltbox</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES (brief, supports pricing claims) ============ -->
+  <section class="features" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-center">Why teams switch</p>
+        <h2>Everything that makes automation worth trusting</h2>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#FDEDE6">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3v6M12 3l-3.5 3.5M12 3l3.5 3.5" stroke="#C9542F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="12" width="16" height="7" rx="2" stroke="#C9542F" stroke-width="1.8"/></svg>
+          </div>
+          <h3>Triggers that actually fire</h3>
+          <p>Webhooks, schedules, form submits, inbox rules - built on infrastructure that's been load-tested past 2M runs/day.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#EAF2FF">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="12" r="2.4" stroke="#2457C5" stroke-width="1.8"/><path d="M9.4 12h5.2M17 12l3-3.5M17 12l3 3.5" stroke="#2457C5" stroke-width="1.8" stroke-linecap="round"/><circle cx="20" cy="7.5" r="1.4" fill="#2457C5"/><circle cx="20" cy="16.5" r="1.4" fill="#2457C5"/></svg>
+          </div>
+          <h3>Branching, not just chains</h3>
+          <p>Real if/then logic, loops, and delays - build workflows that reflect how your team actually makes decisions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#EAF8EF">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#1F7A52" stroke-width="1.8"/><path d="M8 12l2.5 2.5L16 9" stroke="#1F7A52" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>A clear audit trail</h3>
+          <p>Every run is logged with inputs, outputs, and timing, so "it didn't work" becomes a 10-second lookup, not a mystery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-center">Pricing</p>
+        <h2>Plans that scale with your team, not against it</h2>
+        <p class="section-sub">Every plan includes unlimited workflows during your trial. No setup fees, no surprise overages - just a heads-up before you'd ever hit a limit.</p>
+      </div>
+
+      <div class="billing-toggle" role="group" aria-label="Billing period">
+        <button type="button" class="toggle-option is-active" data-period="annual" id="btnAnnual">
+          Billed annually <span class="toggle-badge">Save 20%</span>
+        </button>
+        <button type="button" class="toggle-option" data-period="monthly" id="btnMonthly">
+          Billed monthly
+        </button>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- Starter -->
+        <article class="price-card">
+          <div class="price-card-top">
+            <h3>Starter</h3>
+            <p class="price-card-desc">For small teams getting their first workflows off the ground.</p>
+            <p class="price">
+              <span class="price-currency">$</span><span class="price-amount" data-annual="9" data-monthly="12">9</span><span class="price-period">/user/mo</span>
+            </p>
+            <p class="price-note" data-annual-note="billed annually" data-monthly-note="billed monthly">billed annually</p>
+            <a href="#" class="btn btn-outline btn-block">Start free trial</a>
+          </div>
+          <div class="price-card-body">
+            <p class="includes-label">Includes</p>
+            <ul class="feature-list">
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 10 active workflows</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 1,000 automation runs / month</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Core integrations (Slack, Gmail, Sheets)</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 3 team members</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Email support (1 business day)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Pro -->
+        <article class="price-card price-card-featured">
+          <p class="popular-badge">Most popular</p>
+          <div class="price-card-top">
+            <h3>Pro</h3>
+            <p class="price-card-desc">For growing teams that are starting to run on automation.</p>
+            <p class="price">
+              <span class="price-currency">$</span><span class="price-amount" data-annual="19" data-monthly="24">19</span><span class="price-period">/user/mo</span>
+            </p>
+            <p class="price-note" data-annual-note="billed annually" data-monthly-note="billed monthly">billed annually</p>
+            <a href="#" class="btn btn-primary btn-block">Start free trial</a>
+          </div>
+          <div class="price-card-body">
+            <p class="includes-label">Everything in Starter, plus</p>
+            <ul class="feature-list">
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited workflows</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 25,000 automation runs / month</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Advanced integrations (Salesforce, HubSpot, Notion)</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Conditional logic &amp; branching</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Up to 25 team members</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Priority support (same business day)</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Business -->
+        <article class="price-card">
+          <div class="price-card-top">
+            <h3>Business</h3>
+            <p class="price-card-desc">For teams that need control, security, and room to scale.</p>
+            <p class="price">
+              <span class="price-currency">$</span><span class="price-amount" data-annual="39" data-monthly="48">39</span><span class="price-period">/user/mo</span>
+            </p>
+            <p class="price-note" data-annual-note="billed annually" data-monthly-note="billed monthly">billed annually</p>
+            <a href="#" class="btn btn-outline btn-block">Talk to sales</a>
+          </div>
+          <div class="price-card-body">
+            <p class="includes-label">Everything in Pro, plus</p>
+            <ul class="feature-list">
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited team members</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Unlimited automation runs</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> SSO &amp; SCIM provisioning</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Audit logs &amp; granular permissions</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Dedicated success manager</li>
+              <li><svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.2 11.7L13 4.5" stroke="#1F7A52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Custom SLA &amp; 99.95% uptime guarantee</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="enterprise-note">
+        Need more than 300 seats, on-prem connectors, or a custom contract? <a href="#">Talk to our team</a> - we'll build a plan around how you actually work.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow eyebrow-center">Questions</p>
+        <h2>Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is there really a free trial, no credit card required?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes. Every plan starts with a 14-day trial of Pro-level features, and we don't ask for a card to start it. You'll get a reminder three days before it ends, and nothing is charged unless you choose a plan.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What exactly counts as an "automation run"?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>One run is one complete execution of a workflow from trigger to final step, regardless of how many actions or conditions it contains inside. Checking a trigger that doesn't fire (e.g. a schedule check with nothing new to do) doesn't count against your limit.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I change plans or seat count later?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Anytime, from your billing settings. Upgrades apply immediately and we prorate the difference; downgrades take effect at the start of your next billing cycle so you never lose access mid-month. Adding or removing seats is immediate and adjusts your next invoice automatically.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>What happens if my team goes over its monthly run limit?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>We'll email you at 80% and 100% of your limit - nothing is cut off automatically. If you consistently run over, we'll suggest the next plan up rather than billing surprise overage fees; Business plans have no run limit at all.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do unused seats or runs roll over to the next month?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Automation runs reset at the start of each billing cycle and don't carry over. Seats work differently - if you remove a teammate mid-cycle, that seat's unused time is credited toward your next invoice rather than lost.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is my data secure, and who can see it?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>All data is encrypted in transit and at rest. Workflow data is scoped to your workspace and only visible to teammates you've invited. Business plans add SSO/SCIM, full audit logs, and granular per-workflow permissions for teams with stricter compliance needs.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you offer discounts for startups or nonprofits?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes - registered nonprofits get 30% off any plan, and early-stage startups (under 2 years old, pre-Series A) get 50% off their first year on Pro. Reach out from the billing page and we'll get you set up within a day.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I cancel anytime, and what happens to my workflows?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 7l4 4 4-4" stroke="#14213D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, with no cancellation fee - your plan stays active until the end of the current billing period. Your workflows are paused (not deleted) for 30 days afterward in case you change your mind, then archived.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" id="demo">
+    <div class="wrap final-cta-inner">
+      <h2>Your team has better things to do than copy-pasting between apps.</h2>
+      <p>Start free for 14 days. Set up your first workflow before your coffee gets cold.</p>
+      <div class="hero-cta-row final-cta-row">
+        <a href="#pricing" class="btn btn-primary btn-lg">Start your free trial</a>
+        <a href="#" class="btn btn-outline-light btn-lg">Book a 15-min walkthrough</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <a href="#top" class="logo logo-footer">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="6" cy="14" r="3.4" fill="#E68A66"/>
+          <circle cx="22" cy="6" r="3.4" fill="#F4F1EC"/>
+          <circle cx="22" cy="22" r="3.4" fill="#F4F1EC"/>
+          <path d="M9 13 L19 7" stroke="#F4F1EC" stroke-width="1.6"/>
+          <path d="M9 15 L19 21" stroke="#F4F1EC" stroke-width="1.6"/>
+        </svg>
+        <span>Flowstack</span>
+      </a>
+      <p>Workflow automation built for small teams, not enterprise procurement committees.</p>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <p class="footer-col-title">Product</p>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#">Integrations</a>
+        <a href="#">Changelog</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Company</p>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Blog</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col-title">Support</p>
+        <a href="#faq">FAQ</a>
+        <a href="#">Help center</a>
+        <a href="#">Contact</a>
+        <a href="#">Status</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>© 2026 Flowstack, Inc. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Security</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

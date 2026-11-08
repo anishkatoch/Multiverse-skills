@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In</title>
+<style>
+  :root {
+    --bg-grad-1: #6a5cf5;
+    --bg-grad-2: #8e6ff7;
+    --card-bg: #ffffff;
+    --text-primary: #1a1a2e;
+    --text-secondary: #6b7280;
+    --accent: #6a5cf5;
+    --accent-hover: #5847d9;
+    --border: #e5e7eb;
+    --border-focus: #6a5cf5;
+    --error: #e5484d;
+    --error-bg: #fef2f2;
+    --radius: 12px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+    padding: 24px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 400px;
+    border-radius: var(--radius);
+    padding: 40px 36px 32px;
+    box-shadow: 0 20px 60px rgba(30, 20, 80, 0.25);
+    animation: rise 0.45s ease-out;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--bg-grad-1), var(--bg-grad-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .logo svg {
+    width: 24px;
+    height: 24px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 2;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin: 0 0 6px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0 0 28px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-wrap svg.icon {
+    position: absolute;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    stroke: var(--text-secondary);
+    fill: none;
+    stroke-width: 1.8;
+    pointer-events: none;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14.5px;
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    background: #fafafa;
+  }
+
+  input::placeholder {
+    color: #b0b3bd;
+  }
+
+  input:focus {
+    border-color: var(--border-focus);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(106, 92, 245, 0.12);
+  }
+
+  input.input-error {
+    border-color: var(--error);
+  }
+
+  input.input-error:focus {
+    box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.12);
+  }
+
+  .toggle-pw {
+    position: absolute;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    color: var(--text-secondary);
+  }
+
+  .toggle-pw svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.8;
+  }
+
+  .error-msg {
+    font-size: 12.5px;
+    color: var(--error);
+    min-height: 0;
+    display: none;
+  }
+
+  .error-msg.show {
+    display: block;
+  }
+
+  .row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -4px;
+  }
+
+  .remember {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .remember input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    border: 1.5px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .remember input[type="checkbox"]:checked {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .remember input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 1.5px;
+    width: 5px;
+    height: 9px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+
+  .forgot-link {
+    font-size: 13.5px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .forgot-link:hover {
+    text-decoration: underline;
+  }
+
+  .submit-btn {
+    margin-top: 6px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.08s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .submit-btn:hover {
+    background: var(--accent-hover);
+  }
+
+  .submit-btn:active {
+    transform: scale(0.98);
+  }
+
+  .submit-btn:disabled {
+    opacity: 0.75;
+    cursor: not-allowed;
+  }
+
+  .spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: none;
+  }
+
+  .submit-btn.loading .spinner {
+    display: inline-block;
+  }
+
+  .submit-btn.loading .btn-text {
+    display: none;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 22px 0 18px;
+    color: var(--text-secondary);
+    font-size: 12.5px;
+  }
+
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .signup {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+
+  .signup a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .signup a:hover {
+    text-decoration: underline;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #1a1a2e;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: linear-gradient(135deg, #2a2550, #4b3a8f);
+    }
+    .card {
+      background: #1e1e2e;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+    }
+    h1, label { color: #f1f1f6; }
+    .subtitle, .remember, .signup { color: #a0a3b1; }
+    input {
+      background: #262636;
+      border-color: #3a3a4d;
+      color: #f1f1f6;
+    }
+    input:focus { background: #2b2b3d; }
+    .divider::before, .divider::after { background: #3a3a4d; }
+    .remember input[type="checkbox"] { border-color: #4a4a5d; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="logo">
+      <svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 8V7a3 3 0 0 1 6 0v3H9z"/></svg>
+    </div>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to continue to your account</p>
+
+    <form id="loginForm" novalidate>
+      <div class="field">
+        <label for="email">Email address</label>
+        <div class="input-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 7 8-7" stroke-linejoin="round"/></svg>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-wrap">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+          <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password">
+          <button type="button" class="toggle-pw" id="togglePw" aria-label="Show password">
+            <svg id="eyeIcon" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <span class="error-msg" id="passwordError">Password must be at least 6 characters.</span>
+      </div>
+
+      <div class="row-between">
+        <label class="remember">
+          <input type="checkbox" id="remember" name="remember">
+          Remember me
+        </label>
+        <a href="#" class="forgot-link" id="forgotLink">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <span class="spinner"></span>
+        <span class="btn-text">Sign in</span>
+      </button>
+    </form>
+
+    <div class="divider">or</div>
+    <p class="signup">Don't have an account? <a href="#" id="signupLink">Sign up</a></p>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+  const form = document.getElementById('loginForm');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const submitBtn = document.getElementById('submitBtn');
+  const togglePw = document.getElementById('togglePw');
+  const eyeIcon = document.getElementById('eyeIcon');
+  const toast = document.getElementById('toast');
+  const forgotLink = document.getElementById('forgotLink');
+  const signupLink = document.getElementById('signupLink');
+
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function validateEmail() {
+    const value = emailInput.value.trim();
+    const valid = isValidEmail(value);
+    emailInput.classList.toggle('input-error', !valid);
+    emailError.classList.toggle('show', !valid);
+    return valid;
+  }
+
+  function validatePassword() {
+    const value = passwordInput.value;
+    const valid = value.length >= 6;
+    passwordInput.classList.toggle('input-error', !valid);
+    passwordError.classList.toggle('show', !valid);
+    return valid;
+  }
+
+  emailInput.addEventListener('blur', validateEmail);
+  passwordInput.addEventListener('blur', validatePassword);
+
+  emailInput.addEventListener('input', () => {
+    if (emailInput.classList.contains('input-error')) validateEmail();
+  });
+  passwordInput.addEventListener('input', () => {
+    if (passwordInput.classList.contains('input-error')) validatePassword();
+  });
+
+  togglePw.addEventListener('click', () => {
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    togglePw.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    eyeIcon.innerHTML = isPassword
+      ? '<path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.5 5.4A10.6 10.6 0 0 1 12 5c7 0 11 7 11 7a13.2 13.2 0 0 1-3 3.4M6.3 6.3C3.5 8.1 1 12 1 12s4 7 11 7a10.6 10.6 0 0 0 4.1-.8"/>'
+      : '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/>';
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailValid = validateEmail();
+    const passwordValid = validatePassword();
+    if (!emailValid || !passwordValid) return;
+
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+
+    setTimeout(() => {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      showToast('Signed in successfully (demo only).');
+      form.reset();
+      emailInput.classList.remove('input-error');
+      passwordInput.classList.remove('input-error');
+      emailError.classList.remove('show');
+      passwordError.classList.remove('show');
+    }, 1200);
+  });
+
+  forgotLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('Forgot password flow would go here.');
+  });
+
+  signupLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    showToast('Sign up flow would go here.');
+  });
+</script>
+
+</body>
+</html>

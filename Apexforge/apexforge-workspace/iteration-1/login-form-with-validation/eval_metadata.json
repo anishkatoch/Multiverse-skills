@@ -1,0 +1,10 @@
+{
+  "eval_name": "login-form-with-validation",
+  "prompt": "I need a login page for my app - email and password fields, a \"remember me\" checkbox, a forgot password link, and a sign up link at the bottom. Should look clean and modern. No existing project, just build it standalone.",
+  "assertions": [
+    "The page includes an email field, a password field, a \"remember me\" checkbox, a \"forgot password\" link, and a sign-up link, all visibly present and functional (not just mentioned in passing).",
+    "The form implements inline validation (e.g. invalid email format or empty password shows an error message) and the submit button has a visible loading/disabled state when submitting, implemented even though the user didn't explicitly ask for these.",
+    "The agent actually opened/ran the login page in a browser and exercised the validation logic (e.g. tried submitting with a bad email or empty password) rather than only reading the code it wrote.",
+    "The agent checked or describes checking the page at more than one viewport width (at minimum mobile and desktop) and the layout adapts cleanly (e.g. card width, padding, or centering adjusts) rather than using one fixed-width layout."
+  ]
+}

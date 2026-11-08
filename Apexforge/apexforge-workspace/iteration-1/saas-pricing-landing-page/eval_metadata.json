@@ -1,0 +1,10 @@
+{
+  "eval_name": "saas-pricing-landing-page",
+  "prompt": "Build me a pricing page for my SaaS product called Flowstack - it's a workflow automation tool for small teams. I want 3 pricing tiers (Starter, Pro, Business), a FAQ section, and a big CTA section at the top. Make it look really professional, not like a generic AI-generated template. It just needs to be a standalone page, no existing project to fit into.",
+  "assertions": [
+    "The page includes exactly three pricing tiers labeled Starter, Pro, and Business, each with its own price and a distinct list of features.",
+    "The page has a prominent call-to-action section near the top and a distinct FAQ section with multiple real (non-placeholder) questions and answers relevant to a workflow-automation SaaS product.",
+    "The agent actually launched/opened the page in a browser (not just read its own code back) and checked it at multiple viewport widths, including a mobile-sized width, before reporting completion.",
+    "The visual design avoids generic AI-template tells (e.g. identical feature cards with no visual distinction, a vague purple-to-blue gradient hero with no real content, placeholder lorem-ipsum text) and instead has content and styling that reads as specific to Flowstack / workflow automation."
+  ]
+}

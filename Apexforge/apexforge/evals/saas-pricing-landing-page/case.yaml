@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: saas-pricing-landing-page
+expected_outcome: |
+  A complete, standalone pricing page for "Flowstack" with a hero/CTA section at top,
+  three distinct pricing tiers (Starter, Pro, Business) each with real-looking feature
+  lists and prices, and an FAQ section. Visual design looks deliberate and specific to
+  a workflow-automation product, not a generic bootstrap-looking template. The page is
+  responsive at mobile, tablet, and desktop widths, and was actually run/opened in a
+  browser to confirm it renders without console errors and without layout breakage at
+  any width.

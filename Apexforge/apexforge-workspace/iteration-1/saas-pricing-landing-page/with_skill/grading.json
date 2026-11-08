@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The page includes exactly three pricing tiers labeled Starter, Pro, and Business, each with its own price and a distinct list of features.", "passed": true, "evidence": "Agent report: Starter $9/$12, Pro $19/$24 ('Most popular', elevated dark-navy card), Business $39/$48, each with its own feature list and a monthly/annual toggle."},
+    {"text": "The page has a prominent call-to-action section near the top and a distinct FAQ section with multiple real (non-placeholder) questions and answers relevant to a workflow-automation SaaS product.", "passed": true, "evidence": "Hero with headline + dual CTAs at top; 8-question FAQ accordion with real Q&A, plus a second CTA band."},
+    {"text": "The agent actually launched/opened the page in a browser (not just read its own code back) and checked it at multiple viewport widths, including a mobile-sized width, before reporting completion.", "passed": true, "evidence": "Installed Playwright + Chromium, took full-page screenshots at 375px/768px/1440px, confirmed zero console/page errors at all three."},
+    {"text": "The visual design avoids generic AI-template tells (e.g. identical feature cards with no visual distinction, a vague purple-to-blue gradient hero with no real content, placeholder lorem-ipsum text) and instead has content and styling that reads as specific to Flowstack / workflow automation.", "passed": true, "evidence": "Custom bespoke workflow-diagram hero illustration (not a stock gradient blob), warm cream/ink-navy/terracotta palette, Fraunces+Inter type pairing, real token scale, Pro tier visually distinct via dark-navy elevated card rather than just a border."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

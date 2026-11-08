@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The page includes exactly three pricing tiers labeled Starter, Pro, and Business, each with its own price and a distinct list of features.", "passed": true, "evidence": "Starter $15/user/mo, Pro $39/user/mo ('Most popular'), Business $79/user/mo, each with its own feature list."},
+    {"text": "The page has a prominent call-to-action section near the top and a distinct FAQ section with multiple real (non-placeholder) questions and answers relevant to a workflow-automation SaaS product.", "passed": true, "evidence": "Hero/top CTA with two CTAs plus trust strip; 6-question FAQ accordion; dark bottom CTA band."},
+    {"text": "The agent actually launched/opened the page in a browser (not just read its own code back) and checked it at multiple viewport widths, including a mobile-sized width, before reporting completion.", "passed": false, "evidence": "Agent explicitly stated: 'I did NOT open this in an actual browser or use any screenshot/run tool - I only wrote the code and manually cross-checked consistency by reading it back.'"},
+    {"text": "The visual design avoids generic AI-template tells (e.g. identical feature cards with no visual distinction, a vague purple-to-blue gradient hero with no real content, placeholder lorem-ipsum text) and instead has content and styling that reads as specific to Flowstack / workflow automation.", "passed": true, "evidence": "Warm ink/amber/navy palette with subtle noise overlay instead of a purple gradient; Pro plan given a distinct dark-navy elevated treatment. Design intent is good, though unverified visually so any rendering bugs would not have been caught."}
+  ],
+  "summary": {"passed": 3, "failed": 1, "total": 4, "pass_rate": 0.75}
+}

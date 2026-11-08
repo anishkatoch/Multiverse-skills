@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: login-form-with-validation
+expected_outcome: |
+  A clean, modern-looking login page with email field, password field (with a
+  show/hide password toggle), a "remember me" checkbox, a "forgot password" link,
+  and a sign-up link at the bottom. Inline validation shows an error if the email
+  format is invalid or the password is empty, and the submit button shows a loading
+  state on submit. Layout is responsive across mobile, tablet, and desktop. The agent
+  actually ran the page in a browser and tested the validation and both viewport sizes
+  rather than just writing the code.

@@ -1,0 +1,9 @@
+{
+  "eval_name": "dashboard-in-existing-site",
+  "prompt": "I have a little internal tool called CRM Lite (just plain HTML/CSS right now, files are in this folder). Add a dashboard page with a sidebar nav and a table showing our customer list - columns for name, email, plan, and status. Match the existing look of the site.\n\nInput files: index.html, style.css",
+  "assertions": [
+    "The agent recognized the existing project uses plain HTML/CSS (not a framework) and built the new dashboard page the same way, reusing the existing CSS variables/color scheme from style.css instead of introducing React, Tailwind, or a visually inconsistent design.",
+    "The new page has a sidebar navigation element and a customer table with columns for name, email, plan, and status, populated with realistic sample rows (not lorem ipsum or empty placeholders).",
+    "The agent actually opened/ran the new dashboard page in a browser (not only read back the code it wrote) and checked it, including at a mobile viewport width, before reporting completion."
+  ]
+}

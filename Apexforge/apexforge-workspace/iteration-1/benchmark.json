@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "skill_name": "pro-frontend-builder",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-11-03T00:40:01Z",
+    "evals_run": [
+      "dashboard-in-existing-site",
+      "login-form-with-validation",
+      "saas-pricing-landing-page"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "dashboard-in-existing-site",
+      "eval_name": "dashboard-in-existing-site",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "time_seconds": 731.5,
+        "tokens": 97511,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The agent recognized the existing project uses plain HTML/CSS (not a framework) and built the new dashboard page the same way, reusing the existing CSS variables/color scheme from style.css instead of introducing React, Tailwind, or a visually inconsistent design.",
+          "passed": true,
+          "evidence": "Stayed 100% plain HTML/CSS/no-JS, reused existing --color-bg/-surface/-border/-text/-accent/--radius/--font variables, added a few new tokens in the same :root block for status colors."
+        },
+        {
+          "text": "The new page has a sidebar navigation element and a customer table with columns for name, email, plan, and status, populated with realistic sample rows (not lorem ipsum or empty placeholders).",
+          "passed": true,
+          "evidence": "Sidebar with Overview/Customers/Reports/Deals/Settings and inline SVG icons; table with 9 realistic sample customers (avatar initials, email, plan pill, status dot+label) plus 4 stat cards."
+        },
+        {
+          "text": "The agent actually opened/ran the new dashboard page in a browser (not only read back the code it wrote) and checked it, including at a mobile viewport width, before reporting completion.",
+          "passed": true,
+          "evidence": "Installed Playwright, served the project locally, drove headless Chromium at 375/768/1440px, checked console errors and horizontal overflow, took and reviewed screenshots. Found and fixed a real mobile overflow bug (flex auto-margin + unwrapped table width at 375px) and re-verified after the fix."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "login-form-with-validation",
+      "eval_name": "login-form-with-validation",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 689.1,
+        "tokens": 103796,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The page includes an email field, a password field, a \"remember me\" checkbox, a \"forgot password\" link, and a sign-up link, all visibly present and functional (not just mentioned in passing).",
+          "passed": true,
+          "evidence": "All five elements implemented; remember-me persists email via localStorage across a real page reload, forgot-password/sign-up show real frontend feedback given there's no backend."
+        },
+        {
+          "text": "The form implements inline validation (e.g. invalid email format or empty password shows an error message) and the submit button has a visible loading/disabled state when submitting, implemented even though the user didn't explicitly ask for these.",
+          "passed": true,
+          "evidence": "Empty-submit validation errors, bad-email/short-password errors, password visibility toggle, disabled/loading state with spinner, success banner \u2014 all added beyond the literal request."
+        },
+        {
+          "text": "The agent actually opened/ran the login page in a browser and exercised the validation logic (e.g. tried submitting with a bad email or empty password) rather than only reading the code it wrote.",
+          "passed": true,
+          "evidence": "Installed Playwright + headless Chromium, drove the page with a script, confirmed empty-submit/bad-email/short-password errors, toggle, checkbox persistence, and full submit flow. Found and fixed a real bug: SVG 'hidden' attribute/property didn't reliably toggle icon visibility in this Chromium build; fixed with a CSS class toggle and re-verified."
+        },
+        {
+          "text": "The agent checked or describes checking the page at more than one viewport width (at minimum mobile and desktop) and the layout adapts cleanly (e.g. card width, padding, or centering adjusts) rather than using one fixed-width layout.",
+          "passed": true,
+          "evidence": "Checked 375px/768px/1440px, confirmed scrollWidth === clientWidth (no horizontal overflow) at all three, reviewed screenshots at each width."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "saas-pricing-landing-page",
+      "eval_name": "saas-pricing-landing-page",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 512.1,
+        "tokens": 91508,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The page includes exactly three pricing tiers labeled Starter, Pro, and Business, each with its own price and a distinct list of features.",
+          "passed": true,
+          "evidence": "Agent report: Starter $9/$12, Pro $19/$24 ('Most popular', elevated dark-navy card), Business $39/$48, each with its own feature list and a monthly/annual toggle."
+        },
+        {
+          "text": "The page has a prominent call-to-action section near the top and a distinct FAQ section with multiple real (non-placeholder) questions and answers relevant to a workflow-automation SaaS product.",
+          "passed": true,
+          "evidence": "Hero with headline + dual CTAs at top; 8-question FAQ accordion with real Q&A, plus a second CTA band."
+        },
+        {
+          "text": "The agent actually launched/opened the page in a browser (not just read its own code back) and checked it at multiple viewport widths, including a mobile-sized width, before reporting completion.",
+          "passed": true,
+          "evidence": "Installed Playwright + Chromium, took full-page screenshots at 375px/768px/1440px, confirmed zero console/page errors at all three."
+        },
+        {
+          "text": "The visual design avoids generic AI-template tells (e.g. identical feature cards with no visual distinction, a vague purple-to-blue gradient hero with no real content, placeholder lorem-ipsum text) and instead has content and styling that reads as specific to Flowstack / workflow automation.",
+          "passed": true,
+          "evidence": "Custom bespoke workflow-diagram hero illustration (not a stock gradient blob), warm cream/ink-navy/terracotta palette, Fraunces+Inter type pairing, real token scale, Pro tier visually distinct via dark-navy elevated card rather than just a border."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "dashboard-in-existing-site",
+      "eval_name": "dashboard-in-existing-site",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 2,
+        "failed": 1,
+        "total": 3,
+        "time_seconds": 56.5,
+        "tokens": 51666,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The agent recognized the existing project uses plain HTML/CSS (not a framework) and built the new dashboard page the same way, reusing the existing CSS variables/color scheme from style.css instead of introducing React, Tailwind, or a visually inconsistent design.",
+          "passed": true,
+          "evidence": "Stayed plain HTML/CSS, appended .layout/.sidebar/.sidenav/.card/.data-table/.status* rules built from the existing CSS variables, additive only."
+        },
+        {
+          "text": "The new page has a sidebar navigation element and a customer table with columns for name, email, plan, and status, populated with realistic sample rows (not lorem ipsum or empty placeholders).",
+          "passed": true,
+          "evidence": "Sidebar with Dashboard/Customers/Deals/Reports/Settings links; table with 7 sample customers, Name/Email/Plan/Status columns with colored status pills."
+        },
+        {
+          "text": "The agent actually opened/ran the new dashboard page in a browser (not only read back the code it wrote) and checked it, including at a mobile viewport width, before reporting completion.",
+          "passed": false,
+          "evidence": "Agent explicitly stated: 'I did not open this in a browser. I only hand-reviewed the HTML/CSS...' and separately noted 'no responsive handling for the table on narrow viewports' as an unresolved caveat rather than something checked and fixed."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "login-form-with-validation",
+      "eval_name": "login-form-with-validation",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 74.1,
+        "tokens": 53308,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The page includes an email field, a password field, a \"remember me\" checkbox, a \"forgot password\" link, and a sign-up link, all visibly present and functional (not just mentioned in passing).",
+          "passed": true,
+          "evidence": "Email field, password field with show/hide toggle, custom-styled remember-me checkbox, forgot-password link (demo toast), sign-up link all implemented."
+        },
+        {
+          "text": "The form implements inline validation (e.g. invalid email format or empty password shows an error message) and the submit button has a visible loading/disabled state when submitting, implemented even though the user didn't explicitly ask for these.",
+          "passed": true,
+          "evidence": "Email regex validation with inline error text, password min-length validation, submit button with loading-spinner state and simulated async submit with success toast."
+        },
+        {
+          "text": "The agent actually opened/ran the login page in a browser and exercised the validation logic (e.g. tried submitting with a bad email or empty password) rather than only reading the code it wrote.",
+          "passed": false,
+          "evidence": "Agent explicitly stated: launched the file via PowerShell Start-Process (opened default browser with no errors) but 'did not capture/inspect a screenshot' and the result is 'code-review-verified... but not visually/interactively confirmed in a live rendered view.' No validation states were actually exercised."
+        },
+        {
+          "text": "The agent checked or describes checking the page at more than one viewport width (at minimum mobile and desktop) and the layout adapts cleanly (e.g. card width, padding, or centering adjusts) rather than using one fixed-width layout.",
+          "passed": false,
+          "evidence": "Report describes the design as 'responsive down to mobile widths' as a built-in CSS feature, but no viewport widths were actually checked or verified."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "saas-pricing-landing-page",
+      "eval_name": "saas-pricing-landing-page",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 159.6,
+        "tokens": 63577,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The page includes exactly three pricing tiers labeled Starter, Pro, and Business, each with its own price and a distinct list of features.",
+          "passed": true,
+          "evidence": "Starter $15/user/mo, Pro $39/user/mo ('Most popular'), Business $79/user/mo, each with its own feature list."
+        },
+        {
+          "text": "The page has a prominent call-to-action section near the top and a distinct FAQ section with multiple real (non-placeholder) questions and answers relevant to a workflow-automation SaaS product.",
+          "passed": true,
+          "evidence": "Hero/top CTA with two CTAs plus trust strip; 6-question FAQ accordion; dark bottom CTA band."
+        },
+        {
+          "text": "The agent actually launched/opened the page in a browser (not just read its own code back) and checked it at multiple viewport widths, including a mobile-sized width, before reporting completion.",
+          "passed": false,
+          "evidence": "Agent explicitly stated: 'I did NOT open this in an actual browser or use any screenshot/run tool \u2014 I only wrote the code and manually cross-checked consistency by reading it back.'"
+        },
+        {
+          "text": "The visual design avoids generic AI-template tells (e.g. identical feature cards with no visual distinction, a vague purple-to-blue gradient hero with no real content, placeholder lorem-ipsum text) and instead has content and styling that reads as specific to Flowstack / workflow automation.",
+          "passed": true,
+          "evidence": "Warm ink/amber/navy palette with subtle noise overlay instead of a purple gradient; Pro plan given a distinct dark-navy elevated treatment. Design intent is good, though unverified visually so any rendering bugs would not have been caught."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 644.2333,
+        "stddev": 116.3781,
+        "min": 512.1,
+        "max": 731.5
+      },
+      "tokens": {
+        "mean": 97605.0,
+        "stddev": 6144.5393,
+        "min": 91508,
+        "max": 103796
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.64,
+        "stddev": 0.1277,
+        "min": 0.5,
+        "max": 0.75
+      },
+      "time_seconds": {
+        "mean": 96.7333,
+        "stddev": 55.1507,
+        "min": 56.5,
+        "max": 159.6
+      },
+      "tokens": {
+        "mean": 56183.6667,
+        "stddev": 6455.2362,
+        "min": 51666,
+        "max": 63577
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.36",
+      "time_seconds": "+547.5",
+      "tokens": "+41421"
+    }
+  },
+  "notes": [
+    "The with_skill win is driven almost entirely by one behavior: actually running the result in a headless browser. In all 3 cases, the with-skill run installed Playwright and verified at 375/768/1440px; in all 3 baseline runs, the agent either skipped verification entirely or only opened the file without checking console errors, interactions, or viewport widths.",
+    "In every with-skill run, real bugs were caught and fixed only because of that browser verification: oversized checkmark icons (pricing page), an SVG 'hidden' attribute/property quirk that stacked both eye-icon states (login form), and a mobile horizontal-overflow bug from a flex auto-margin interacting with an unwrapped table (dashboard). None of these would have been visible from a code read-back alone, which is exactly the failure mode the baseline runs fell into.",
+    "The cost is real: with_skill runs took roughly 6-9x longer (512-731s vs 57-160s) and used ~1.7x the tokens (~91-104k vs ~52-64k), almost entirely from installing Playwright/Chromium fresh in each sandbox and iterating on a found bug. In a repo that already has browser tooling available this gap should shrink a lot, since most of the time cost here is one-time environment setup rather than inherent to the verification step.",
+    "Completeness (requested elements, inferred features like validation states) was fairly close between with- and without-skill on these particular prompts, 2/3 baseline runs implemented validation/loading states unprompted. The skill's distinguishing value here is specifically the 'no bugs / responsive confirmed' half of its promise, not raw feature coverage, at least for prompts of this complexity.",
+    "The dashboard-in-existing-site case is the cleanest signal: both runs matched the existing plain-HTML/CSS stack and built equivalent content, so the only real differentiator was verification; without_skill explicitly shipped an unfixed mobile table overflow bug as a 'caveat' rather than catching it."
+  ]
+}

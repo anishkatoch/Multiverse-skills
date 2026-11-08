@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard · CRM Lite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">CRM Lite</div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="#">Contacts</a>
+      <a href="#">Settings</a>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="Dashboard navigation">
+      <nav class="sidenav">
+        <a href="#" class="sidenav-item active">
+          <svg class="sidenav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+          <span>Overview</span>
+        </a>
+        <a href="#" class="sidenav-item">
+          <svg class="sidenav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 20c0-3.6 3.4-6.5 7.5-6.5s7.5 2.9 7.5 6.5"/></svg>
+          <span>Customers</span>
+        </a>
+        <a href="#" class="sidenav-item">
+          <svg class="sidenav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19V5M10 19V9M16 19v-6M22 19H2"/></svg>
+          <span>Reports</span>
+        </a>
+        <a href="#" class="sidenav-item">
+          <svg class="sidenav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          <span>Deals</span>
+        </a>
+        <a href="#" class="sidenav-item">
+          <svg class="sidenav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4.6a7.6 7.6 0 0 0-1.7-1l-.4-2.6h-4l-.4 2.6a7.6 7.6 0 0 0-1.7 1l-2.4-.6-2 3.4L6.6 11a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-.6c.5.4 1.1.75 1.7 1l.4 2.6h4l.4-2.6c.6-.25 1.2-.6 1.7-1l2.4.6 2-3.4-2-1.6Z"/></svg>
+          <span>Settings</span>
+        </a>
+      </nav>
+    </aside>
+
+    <main class="page dashboard-main">
+      <div class="page-head">
+        <div>
+          <h1>Customers</h1>
+          <p>An overview of every account on CRM Lite, their plan, and current status.</p>
+        </div>
+        <button type="button" class="btn-primary">+ Add customer</button>
+      </div>
+
+      <section class="stat-row">
+        <div class="stat-card">
+          <span class="stat-label">Total customers</span>
+          <span class="stat-value">9</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Active</span>
+          <span class="stat-value">5</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">On trial</span>
+          <span class="stat-value">2</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Past due</span>
+          <span class="stat-value">1</span>
+        </div>
+      </section>
+
+      <section class="table-card">
+        <div class="table-scroll">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Plan</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">MR</span>
+                  <span>Meera Rao</span>
+                </td>
+                <td>meera.rao@novatek.io</td>
+                <td><span class="plan-pill plan-enterprise">Enterprise</span></td>
+                <td><span class="status-dot status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">DC</span>
+                  <span>Daniel Cho</span>
+                </td>
+                <td>daniel.cho@brightloop.com</td>
+                <td><span class="plan-pill plan-pro">Pro</span></td>
+                <td><span class="status-dot status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">AK</span>
+                  <span>Amara Klein</span>
+                </td>
+                <td>amara.klein@fernwood.co</td>
+                <td><span class="plan-pill plan-pro">Pro</span></td>
+                <td><span class="status-dot status-trial">Trial</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">JP</span>
+                  <span>Julien Petit</span>
+                </td>
+                <td>j.petit@orbitalgoods.fr</td>
+                <td><span class="plan-pill plan-free">Free</span></td>
+                <td><span class="status-dot status-churned">Churned</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">SN</span>
+                  <span>Sofia Nilsson</span>
+                </td>
+                <td>sofia.nilsson@kelvinlabs.se</td>
+                <td><span class="plan-pill plan-enterprise">Enterprise</span></td>
+                <td><span class="status-dot status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">RT</span>
+                  <span>Ravi Thakur</span>
+                </td>
+                <td>ravi.thakur@paperstack.in</td>
+                <td><span class="plan-pill plan-pro">Pro</span></td>
+                <td><span class="status-dot status-past-due">Past due</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">EW</span>
+                  <span>Elena Wu</span>
+                </td>
+                <td>elena.wu@gridharbor.com</td>
+                <td><span class="plan-pill plan-free">Free</span></td>
+                <td><span class="status-dot status-trial">Trial</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">OB</span>
+                  <span>Oscar Bergström</span>
+                </td>
+                <td>oscar.b@northfolio.se</td>
+                <td><span class="plan-pill plan-pro">Pro</span></td>
+                <td><span class="status-dot status-active">Active</span></td>
+              </tr>
+              <tr>
+                <td class="cell-name">
+                  <span class="avatar">LF</span>
+                  <span>Layla Farouk</span>
+                </td>
+                <td>layla.farouk@desertwire.ae</td>
+                <td><span class="plan-pill plan-enterprise">Enterprise</span></td>
+                <td><span class="status-dot status-active">Active</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

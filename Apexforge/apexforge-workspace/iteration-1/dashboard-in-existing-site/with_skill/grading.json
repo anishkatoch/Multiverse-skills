@@ -1,0 +1,8 @@
+{
+  "expectations": [
+    {"text": "The agent recognized the existing project uses plain HTML/CSS (not a framework) and built the new dashboard page the same way, reusing the existing CSS variables/color scheme from style.css instead of introducing React, Tailwind, or a visually inconsistent design.", "passed": true, "evidence": "Stayed 100% plain HTML/CSS/no-JS, reused existing --color-bg/-surface/-border/-text/-accent/--radius/--font variables, added a few new tokens in the same :root block for status colors."},
+    {"text": "The new page has a sidebar navigation element and a customer table with columns for name, email, plan, and status, populated with realistic sample rows (not lorem ipsum or empty placeholders).", "passed": true, "evidence": "Sidebar with Overview/Customers/Reports/Deals/Settings and inline SVG icons; table with 9 realistic sample customers (avatar initials, email, plan pill, status dot+label) plus 4 stat cards."},
+    {"text": "The agent actually opened/ran the new dashboard page in a browser (not only read back the code it wrote) and checked it, including at a mobile viewport width, before reporting completion.", "passed": true, "evidence": "Installed Playwright, served the project locally, drove headless Chromium at 375/768/1440px, checked console errors and horizontal overflow, took and reviewed screenshots. Found and fixed a real mobile overflow bug (flex auto-margin + unwrapped table width at 375px) and re-verified after the fix."}
+  ],
+  "summary": {"passed": 3, "failed": 0, "total": 3, "pass_rate": 1.0}
+}
