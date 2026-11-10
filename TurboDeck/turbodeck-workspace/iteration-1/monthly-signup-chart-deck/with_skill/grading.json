@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The 6-month signup trend is rendered as a real chart, not a bullet list or KPI card.", "passed": true, "evidence": "Slide 2 uses a real LINE_MARKERS chart object (python-pptx CHART shape) for Jan-Jun signups, with a takeaway sentence below it."},
+    {"text": "The channel breakdown is rendered as a real chart, not a bullet list of percentages.", "passed": true, "evidence": "Slide 3 uses a real PIE chart object for the 4-channel breakdown, with a takeaway sentence."},
+    {"text": "Each chart slide has a one-line takeaway.", "passed": true, "evidence": "Slide 2: 'Signups grew every month for six straight months, up 88% from January to June.' Slide 3: 'Organic and paid ads together drive 75% of signups...'"},
+    {"text": "The deck stays focused and short per 'keep it focused, nothing fancy'.", "passed": true, "evidence": "4 slides total: title, growth chart, channel chart, takeaways. No invented extra sections."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

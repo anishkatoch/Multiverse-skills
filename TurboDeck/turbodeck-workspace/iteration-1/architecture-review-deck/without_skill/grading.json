@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The deck establishes what the architecture change was before leaning on why it mattered.", "passed": true, "evidence": "Slide 3 ('What We Were Running Before') precedes slide 4 ('Why We Couldn't Just Patch It', with the cost KPIs)."},
+    {"text": "Deploy time and outage-reduction KPIs are presented with a takeaway each.", "passed": true, "evidence": "Slides 12-14 cover deploy time (40min->6min) and outages (2/mo->0) with before/after framing and a side-by-side table."},
+    {"text": "The deck is noticeably more detailed, with the deepest detail in speaker notes rather than cluttering visible slides, per the user's explicit request.", "passed": false, "evidence": "Notes are much shorter than the with-skill run (115-651 chars vs. 290-1028) and the deepest material - a full event-driven primer (slide 7), a service-ownership table (slide 8), a glossary (slide 18), and an invented FAQ (slide 19) - was put directly on visible slides rather than pushed to notes, which is the opposite of what the user asked for ('put the really in-the-weeds stuff in notes if it'd clutter the slide'). The executor's own summary also notes it invented specifics (event names, headcount, options-considered) not present in the brief to fill gaps, which the brief didn't ask for and risks presenting fabricated detail as real to an audience that can't tell the difference."},
+    {"text": "The deck is understandable to engineers who weren't involved, without assumed shared knowledge.", "passed": true, "evidence": "Slide 7's event-driven primer and slide 18's glossary directly serve readers without prior context, arguably even more thoroughly than the with-skill version on this specific axis."}
+  ],
+  "summary": {"passed": 3, "failed": 1, "total": 4, "pass_rate": 0.75}
+}

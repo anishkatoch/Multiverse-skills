@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "Slide titles, hooks, and bullets are written in natural Hindi, not left in English or stiffly translated.", "passed": true, "evidence": "e.g. 'मजबूत शुरुआत — 30 दिनों में 12,000 डाउनलोड एक अच्छा संकेत है' reads as natural Hindi, not a literal translation."},
+    {"text": "Uses a theme with a Devanagari-capable font rather than the Latin-only presets.", "passed": true, "evidence": "Executor's summary confirms 'Nirmala UI' was explicitly set on all Hindi text runs."},
+    {"text": "The two numbers (12,000 downloads, 4.3 rating) appear as a clear KPI-style callout.", "passed": true, "evidence": "Slide 3 has two large stat-card-style callouts: '12,000 | कुल डाउनलोड' and '4.3 ★ | औसत यूज़र रेटिंग'."},
+    {"text": "The deck is short per the explicit 'not too long, just the main points' request.", "passed": true, "evidence": "5 slides (title, background, metrics, what-it-means, thank-you) - still short overall and not padded with invented content, but noticeably less tight than the with-skill run's 3-slide version of the same brief; the extra background/meaning slides restate given facts rather than add new ones, so this is a borderline pass rather than a clean one."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

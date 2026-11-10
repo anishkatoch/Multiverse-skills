@@ -1,0 +1,10 @@
+{
+  "eval_name": "quarterly-team-update",
+  "prompt": "Here are my rough notes from our Q3 retro, can you turn this into a short slide deck I can share with the wider team (people who weren't in the retro meeting, so it needs to stand on its own)? Nothing fancy, just our internal team colors if you can guess a sensible scheme, nothing client-facing.\n\nNotes:\n- Q3 2026 retro notes\n- shipped the new onboarding flow in Q2 (wait, I think it was actually Q3, need to check... yes it went live August 2026 so Q3)\n- support ticket volume: 412 tickets in Q2, 290 tickets in Q3 - about a 30% drop\n- the new onboarding flow is the main reason, also we hired 1 more support person in Q3\n- NPS went from 31 to 31 again in Q3 (pretty sure that's a typo on my end, I think Q3 was actually higher, maybe 38? I'd have to check the dashboard but I don't have access right now)\n- team is now 9 people, was 7 at start of Q2\n- Q4 goals: get support tickets under 250/quarter, ship the refund self-service feature, onboard 2 more hires\n\nKeep it short - like 5-6 slides, this is just a recap, not a formal presentation.",
+  "assertions": [
+    "The deck says the onboarding flow shipped in Q3 2026 (the quarter the notes self-correct to), not Q2, and doesn't present both conflicting versions as if unresolved.",
+    "The deck does not confidently present a specific NPS number (neither 31 nor an invented figure like 38) as verified fact - it either flags the figure as needing confirmation, leaves it out, or asks the user, since the source notes explicitly say the author is unsure and lacks dashboard access.",
+    "The ticket-volume change (412 to 290, about a 30% drop) is presented as a clear KPI/number with a short takeaway line connecting it to the onboarding launch and/or the extra support hire, not just a bare bullet.",
+    "The deck is written so a teammate who was not in the retro meeting could understand each slide's point without the presenter explaining it live - no inside shorthand left unexplained."
+  ]
+}

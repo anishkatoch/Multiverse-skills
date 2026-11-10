@@ -1,0 +1,15 @@
+schema_version: "1.1"
+name: hindi-app-launch-recap
+expected_outcome: |
+  The request itself is written in Hindi (Devanagari script) and explicitly asks
+  for a short internal team deck about a mobile app launch (12,000 downloads in
+  the first 30 days, 4.3-star rating), asking for the deck to be in Hindi so
+  everyone on the team can understand it easily, and asking that it not be too
+  long - just the main points. A real .pptx file should be produced whose slide
+  titles, hooks, bullets, and any takeaways are actually written in natural
+  Hindi (not left in English, and not a stiff word-for-word translation), using
+  a font that can render Devanagari correctly (the theme's default Latin-script
+  fonts don't cover it - an inline theme with a Devanagari-capable font like
+  "Nirmala UI" should be used instead). The two numbers (12,000 downloads,
+  4.3 rating) should appear as a clear KPI-style callout. The deck should be
+  short (a handful of slides) per the explicit "not too long" request.

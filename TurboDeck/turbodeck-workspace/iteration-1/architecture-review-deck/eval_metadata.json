@@ -1,0 +1,10 @@
+{
+  "eval_name": "architecture-review-deck",
+  "prompt": "I need to present our move from a monolith to event-driven microservices to the wider engineering org next week - a lot of people attending weren't involved in the decision, so the deck needs to actually explain things clearly, not assume context.\n\nBackground: our order-processing monolith was hitting scaling limits - deploys took 40 minutes, and a bug in the shipping module once took down checkout entirely because everything shared one process. We split it into 6 services (orders, inventory, shipping, payments, notifications, and a new event bus using Kafka). Rollout took 5 months. Since launch: deploy time is down to 6 minutes per service, and we've had zero full-system outages in 3 months (down from 2 partial outages/month before).\n\nMake it detailed this time, not a quick summary - people will have follow-up questions and I want the deck itself to answer most of them without me having to fill gaps live. Feel free to put the really in-the-weeds stuff in notes if it'd clutter the slide.",
+  "assertions": [
+    "The deck establishes what the architecture change actually was (monolith split into services + Kafka event bus) before it leans on why it mattered (deploy times, outage risk) - context comes before rationale/stats.",
+    "Deploy time (40min -> 6min) and outage reduction (2 partial/month -> zero full-system in 3 months) are presented as clear KPIs/numbers, each with a short takeaway explaining what the number means for the audience.",
+    "The deck is noticeably more detailed/explanatory than a quick-summary deck would be, reflecting the user's explicit \"make it detailed this time\" instruction, while using speaker notes for the deepest in-the-weeds detail rather than cramming it onto visible slides.",
+    "The deck is written so engineers who weren't involved in the original decision can follow it on their own - technical terms used are either self-evident from context or briefly explained, not assumed shared knowledge."
+  ]
+}

@@ -1,0 +1,17 @@
+schema_version: "1.1"
+name: architecture-review-deck
+expected_outcome: |
+  A real .pptx technical deck for an engineering-org-wide audience that explains
+  the monolith-to-microservices move without assuming the reader was in the room.
+  Narrative order should establish what changed (monolith -> 6 services + Kafka
+  event bus) before explaining why it mattered (the 40-minute deploys, the
+  shared-process outage risk), i.e. context before rationale, not stats dumped
+  before the reader knows what's being discussed. Should use KPIs for the concrete
+  before/after numbers (deploy time 40min -> 6min, outages 2 partial/month -> zero
+  full-system in 3 months) each with a short takeaway. Because the user explicitly
+  asked for "detailed, not a quick summary," the deck should be fuller/more
+  explanatory than the other two test decks - more slides and more supporting
+  content per slide - while still using speaker notes for the most in-the-weeds
+  detail per the user's own suggestion, rather than cramming everything onto
+  the visible slide. Should use a theme suited to a technical audience (e.g.
+  technical-slate or another deliberate, stated choice).

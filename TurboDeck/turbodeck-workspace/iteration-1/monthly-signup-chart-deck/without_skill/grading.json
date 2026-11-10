@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The 6-month signup trend is rendered as a real chart, not a bullet list or KPI card.", "passed": true, "evidence": "Slide 2 uses a real COLUMN_CLUSTERED chart object with data labels. Note: a column chart is a defensible choice but less ideal than a line chart for a continuous month-over-month trend (the thing the skill's own guidance recommends) - a quality nuance, not a failure of this assertion, since it is a real chart either way."},
+    {"text": "The channel breakdown is rendered as a real chart, not a bullet list of percentages.", "passed": true, "evidence": "Slide 3 uses a real PIE chart object plus a supporting breakdown list."},
+    {"text": "Each chart slide has a one-line takeaway.", "passed": true, "evidence": "Slide 2 has a 'KEY TAKEAWAYS' block with growth callouts; slide 3 has an explanatory sentence about channel concentration."},
+    {"text": "The deck stays focused and short per 'keep it focused, nothing fancy'.", "passed": true, "evidence": "4 slides total, same count as the with-skill run - no padding here."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

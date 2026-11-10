@@ -1,0 +1,57 @@
+{
+  "corporate-blue": {
+    "description": "Safe default for business/sales/QBR decks and most companies with a blue-leaning or unspecified brand.",
+    "bg": "FFFFFF",
+    "bg_alt": "F4F7FB",
+    "primary": "123B6D",
+    "accent": "2E7BE0",
+    "text": "1C2733",
+    "text_muted": "5B6B7C",
+    "heading_font": "Calibri",
+    "body_font": "Calibri"
+  },
+  "modern-dark": {
+    "description": "The one preset here with a dark background on every slide, not just section/closing accents - use it only when a dark/moody/premium aesthetic was actually asked for (or is an unmistakable convention, like a flashy investor-deck reveal), never just because the topic is 'tech' or 'product'. Picking this by default makes nearly the whole deck black, which reads as heavy-handed for ordinary business/explainer content - prefer a light preset (corporate-blue, warm-startup, minimal-mono, technical-slate) unless dark was clearly the point.",
+    "bg": "14161A",
+    "bg_alt": "262A32",
+    "primary": "F5F7FA",
+    "accent": "5CE1C6",
+    "text": "F5F7FA",
+    "text_muted": "9AA4B2",
+    "heading_font": "Segoe UI",
+    "body_font": "Segoe UI"
+  },
+  "minimal-mono": {
+    "description": "Editorial, design-forward, or leadership-review decks where the content should carry the weight, not color.",
+    "bg": "FFFFFF",
+    "bg_alt": "EDEDED",
+    "primary": "111111",
+    "accent": "8C7851",
+    "text": "222222",
+    "text_muted": "767676",
+    "heading_font": "Georgia",
+    "body_font": "Calibri"
+  },
+  "warm-startup": {
+    "description": "Pitch decks, culture/people decks, anything that should feel energetic and approachable rather than corporate.",
+    "bg": "FFFBF5",
+    "bg_alt": "FFF1DE",
+    "primary": "B5481A",
+    "accent": "F2994A",
+    "text": "33281F",
+    "text_muted": "8A7566",
+    "heading_font": "Verdana",
+    "body_font": "Verdana"
+  },
+  "technical-slate": {
+    "description": "Architecture reviews, engineering deep-dives, incident postmortems - needs to stay legible with diagrams, code, and dense KPI grids.",
+    "bg": "FFFFFF",
+    "bg_alt": "EEF1F4",
+    "primary": "27374D",
+    "accent": "2E8B8B",
+    "text": "1B2430",
+    "text_muted": "5C6B7A",
+    "heading_font": "Consolas",
+    "body_font": "Calibri"
+  }
+}

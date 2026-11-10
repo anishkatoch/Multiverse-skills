@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: monthly-signup-chart-deck
+expected_outcome: |
+  A real .pptx deck for an internal monthly leadership sync. The six-month signup
+  trend (850 -> 1600) should be rendered as a real line chart (the `chart` layout),
+  not just a bullet list or a KPI card, since it's a trend over time across six
+  data points - the shape of the growth is the point, and a chart shows that
+  instantly where a sentence makes the reader do the work. The channel breakdown
+  (Organic 45% / Paid ads 30% / Referral 15% / Partnerships 10%) should likewise
+  use a real chart (pie, or a column/bar comparing the four channels) rather than
+  a plain bullet list, since it's a part-of-whole / category comparison. Both
+  charts should have a one-line takeaway. Content should stay focused per "keep
+  it focused, nothing fancy" - a handful of slides, not a sprawling deck - and use
+  SaaS-appropriate vocabulary (signups, channel mix) rather than generic labels.

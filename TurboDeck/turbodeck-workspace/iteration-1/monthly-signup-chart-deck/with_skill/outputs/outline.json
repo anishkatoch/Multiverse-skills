@@ -1,0 +1,44 @@
+{
+  "title": "Signups & Channel Mix - Monthly Leadership Sync",
+  "theme": "corporate-blue",
+  "slides": [
+    {
+      "layout": "title",
+      "hook": "Signups nearly doubled in the last six months.",
+      "title": "Signups & Channel Mix",
+      "subtitle": "Marketing Update - Monthly Leadership Sync"
+    },
+    {
+      "layout": "chart",
+      "kicker": "GROWTH",
+      "title": "Signup Growth: January - June",
+      "chart_type": "line",
+      "categories": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "series": [
+        {"name": "Signups", "values": [850, 910, 1020, 1180, 1340, 1600]}
+      ],
+      "y_axis_title": "Signups",
+      "takeaway": "Signups grew every month for six straight months, up 88% from January to June."
+    },
+    {
+      "layout": "chart",
+      "kicker": "CHANNEL MIX",
+      "title": "Signups by Channel This Quarter",
+      "chart_type": "pie",
+      "categories": ["Organic", "Paid ads", "Referral", "Partnerships"],
+      "series": [
+        {"name": "Share of signups", "values": [45, 30, 15, 10]}
+      ],
+      "takeaway": "Organic and paid ads together drive 75% of signups; referral and partnerships are smaller but worth tracking."
+    },
+    {
+      "layout": "closing",
+      "title": "Key Takeaways",
+      "bullets": [
+        "Signup growth has accelerated for 6 consecutive months (850 to 1,600, +88%)",
+        "Organic (45%) and paid ads (30%) remain the two largest acquisition channels",
+        "Discuss: budget allocation across channels for next quarter"
+      ]
+    }
+  ]
+}

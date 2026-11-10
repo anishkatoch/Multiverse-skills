@@ -1,0 +1,105 @@
+{
+  "title": "Driftwood",
+  "theme": "warm-startup",
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Driftwood",
+      "subtitle": "Logistics infrastructure for direct-to-consumer furniture makers",
+      "hook": "Furniture makers want to sell direct. Freight makes them sell through someone else.",
+      "notes": "Seed round pitch, built for a quick send to angel investors. Keep delivery conversational - the deck should stand on its own if read without a call."
+    },
+    {
+      "layout": "content",
+      "title": "Shipping a couch isn't like shipping a T-shirt",
+      "kicker": "PROBLEM",
+      "hook": "Freight, warehousing, and returns are built for big retailers - not a 10-person workshop.",
+      "bullets": [
+        "Bulky, fragile items need freight carriers, white-glove delivery, and real warehousing",
+        "Small makers get worse freight rates and slower, less reliable delivery than large retailers",
+        "Handling logistics in-house pulls makers' time away from actually making furniture",
+        "Many makers cap their DTC ambitions or cobble together unreliable, costly workarounds"
+      ]
+    },
+    {
+      "layout": "content",
+      "title": "We're the ops team furniture makers can't afford to hire",
+      "kicker": "SOLUTION",
+      "hook": "Makers plug into our network instead of negotiating with freight carriers themselves.",
+      "bullets": [
+        "End-to-end logistics: warehousing, shipping, and returns, fully handled for the maker",
+        "Makers keep selling direct to consumers - we run everything after \"order placed\"",
+        "Simple pricing: a per-item fee plus a monthly storage fee",
+        "Makers stay focused on their craft instead of managing carriers and claims"
+      ]
+    },
+    {
+      "layout": "kpi",
+      "title": "Early traction",
+      "kicker": "TRACTION",
+      "kpis": [
+        {"label": "Makers on platform", "value": "42", "delta": "+15% MoM, 4 months running"},
+        {"label": "Avg. revenue per maker", "value": "$340/mo", "delta": ""},
+        {"label": "Current MRR", "value": "~$14.3K", "delta": "42 makers x $340"},
+        {"label": "Monthly growth rate", "value": "15%", "delta": "consistent for last 4 months"}
+      ],
+      "takeaway": "At 42 makers growing 15% a month, the engine already works - this round adds the ops capacity to scale it without breaking it."
+    },
+    {
+      "layout": "content",
+      "title": "We get paid on every shipment and every month of storage",
+      "kicker": "BUSINESS MODEL",
+      "hook": "Revenue scales with each maker's order volume and inventory footprint.",
+      "bullets": [
+        "Per-item fee charged on every order we ship for a maker",
+        "Monthly storage fee for the inventory we warehouse",
+        "Blended average revenue per maker: $340/month across the current base",
+        "Revenue grows both as makers sell more and as the maker base grows"
+      ]
+    },
+    {
+      "layout": "content",
+      "title": "Makers can build the product. They can't build a freight network.",
+      "kicker": "WHY NOW",
+      "hook": "Direct-to-consumer demand is here; the fulfillment infrastructure for small makers isn't.",
+      "bullets": [
+        "DTC furniture sales keep growing, but freight, warehousing, and returns are still built for large retailers",
+        "Without affordable logistics, makers either turn away online orders or absorb costs that erode their margin",
+        "Driftwood lets a small maker operate like a direct-to-consumer brand without becoming a logistics company"
+      ]
+    },
+    {
+      "layout": "kpi",
+      "title": "The next 12 months",
+      "kicker": "THE PLAN",
+      "kpis": [
+        {"label": "Makers today", "value": "42", "delta": ""},
+        {"label": "12-month target", "value": "150 makers", "delta": "+257%"},
+        {"label": "Growth needed", "value": "~11%/mo", "delta": "vs. 15%/mo pace today"},
+        {"label": "Projected MRR at target", "value": "~$51K/mo", "delta": "150 makers x $340"}
+      ],
+      "takeaway": "Reaching 150 makers only requires an 11% monthly growth rate - slower than the 15% we're already sustaining."
+    },
+    {
+      "layout": "content",
+      "title": "$1.2M to turn a 15%-a-month trend into a 150-maker platform",
+      "kicker": "THE ASK",
+      "hook": "The constraint on growth isn't demand - it's hands-on ops capacity.",
+      "bullets": [
+        "Raising a $1.2M seed round",
+        "Hire 2 operations specialists to run warehousing, shipping, and returns at scale",
+        "12 months of runway to grow from 42 to 150 makers on the platform",
+        "Funds the operational capacity growth requires, not just headcount for its own sake"
+      ]
+    },
+    {
+      "layout": "closing",
+      "title": "Let's build the logistics backbone furniture makers deserve",
+      "bullets": [
+        "42 makers today, growing 15% month over month for 4 straight months",
+        "$1.2M seed round to hire 2 ops specialists and reach 150 makers in 12 months",
+        "Let's talk this week"
+      ]
+    }
+  ]
+}

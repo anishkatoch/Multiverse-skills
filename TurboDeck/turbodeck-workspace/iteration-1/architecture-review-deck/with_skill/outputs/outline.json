@@ -1,0 +1,238 @@
+{
+  "title": "Breaking Up the Monolith",
+  "theme": "technical-slate",
+  "slides": [
+    {
+      "layout": "title",
+      "title": "Breaking Up the Monolith",
+      "subtitle": "How order processing moved from a single codebase to event-driven microservices",
+      "hook": "40-minute deploys. One shared process. One bug that took down checkout.",
+      "notes": "Presenter context: this deck is for the wider engineering org, and most attendees were not involved in the original decision. Goal of the talk is to explain what we had, why we changed it, what we built, and what happened since - in enough detail that this deck can stand on its own if someone reads it later without you narrating. Where a slide stays short on purpose, the supporting detail is in these notes - use them to answer follow-up questions live instead of improvising. Suggested run time: 20-25 minutes plus Q&A."
+    },
+    {
+      "layout": "content",
+      "kicker": "ROADMAP",
+      "title": "What we'll cover",
+      "hook": "Most of you weren't in the room for this decision - this deck is the room.",
+      "bullets": [
+        "The problem: why the order-processing monolith stopped working",
+        "The decision: why event-driven microservices, and why six services",
+        "The build: the six services and the Kafka event bus connecting them",
+        "The rollout: how we migrated over five months without a big-bang cutover",
+        "The results: what's changed in the three months since launch",
+        "What's next, and what got harder along the way"
+      ],
+      "notes": "This agenda exists so a reader who skips straight to a later section still knows where it sits in the overall story. Encourage people to hold detailed questions until the relevant section, but flag that the deck itself is built to answer most follow-ups without you - the notes on each slide carry the in-the-weeds detail on purpose."
+    },
+    {
+      "layout": "section",
+      "number": "01",
+      "title": "The Problem",
+      "subtitle": "Why the monolith stopped working"
+    },
+    {
+      "layout": "content",
+      "kicker": "BACKGROUND",
+      "title": "What the order-processing monolith looked like",
+      "hook": "Orders, inventory, shipping, payments, and notifications all lived in one codebase and one process.",
+      "bullets": [
+        "A single deployable application covered all five business domains",
+        "All five domains shared one runtime - a crash anywhere could crash everywhere",
+        "One shared database meant schemas across domains were tightly coupled",
+        "A change in any one domain required a full regression pass across all of them",
+        "Team ownership was blurry - many engineers regularly touched the same code paths"
+      ],
+      "notes": "This is background for people who joined after the monolith era or never worked in that codebase. 'Order processing' here means everything between a customer placing an order and it shipping: order capture, inventory checks, shipping label generation, payment capture, and customer notifications. All of that ran as one application, deployed as one unit, on one shared set of infrastructure. Because it was one process, an unhandled error in any domain's code could crash the whole runtime, not just that domain's functionality - that's the mechanism behind the checkout outage on the next slides. The shared database meant teams couldn't change a table's shape without checking every other domain that might read or write it, which slowed everyone down even for unrelated work. There was no clean team-to-code mapping, so on-call rotations and code review ownership were ambiguous, which made incident response slower than it should have been."
+    },
+    {
+      "layout": "kpi",
+      "title": "The cost of staying monolithic",
+      "kpis": [
+        {"label": "Deploy time", "value": "40 min", "delta": "per release, for any change"},
+        {"label": "Partial outages", "value": "2 / month", "delta": "before the migration"},
+        {"label": "Domains in one process", "value": "5", "delta": "orders, inventory, shipping, payments, notifications"}
+      ],
+      "takeaway": "Every deploy was slow and risky, and a failure in one domain could cascade into all the others.",
+      "notes": "Deploy time of 40 minutes applied uniformly - a one-line config change and a major feature shipped through the same pipeline, so small fixes were just as slow to get out as large changes. That slowness discouraged frequent small deploys, which in turn meant larger, riskier batches of change per release - a reinforcing problem. 'Partial outages' here means incidents where some but not all functionality was degraded or unavailable; we were seeing roughly two of these a month before the migration, on top of the full-system outage described next. Five domains sharing one process is the root cause behind both numbers: slow deploys because everything redeployed together, and fragile failure behavior because everything ran together."
+    },
+    {
+      "layout": "content",
+      "kicker": "CASE STUDY",
+      "title": "A shipping-module bug took down checkout entirely",
+      "hook": "Shipping and checkout had nothing to do with each other on paper - but they shared a process.",
+      "bullets": [
+        "A bug in the shipping module caused unhandled failures in that code path",
+        "Because everything ran in one shared process, the failure wasn't contained to shipping",
+        "Checkout, payments, and inventory went down with it, even though none of them were at fault",
+        "Recovery meant redeploying the entire monolith - the same 40-minute pipeline as any other change"
+      ],
+      "notes": "This incident is the clearest, most concrete illustration of why 'everything shares one process' was a real risk and not an abstract architecture concern. In a monolithic process, an unhandled error in one module can bring down the whole runtime - there's no boundary that contains the blast radius to just the code that failed. That's exactly what happened here: a defect that was logically scoped to shipping ended up taking checkout offline, which is the part of the system with the most direct revenue impact. This incident was a major input into the decision to split the system - it made the failure-isolation argument concrete rather than theoretical. If asked for exact date/duration/revenue figures for this specific incident, defer to the incident postmortem doc rather than guessing numbers live - this deck intentionally doesn't put unverified figures for a single incident on the slide."
+    },
+    {
+      "layout": "section",
+      "number": "02",
+      "title": "The Decision",
+      "subtitle": "Why event-driven microservices, and why six services"
+    },
+    {
+      "layout": "content",
+      "kicker": "RATIONALE",
+      "title": "What we needed, and why a rewrite wasn't the goal",
+      "hook": "This wasn't a rewrite for its own sake - it was about decoupling deploys and failure domains.",
+      "bullets": [
+        "Independent deploys, so one team's change doesn't block or risk another team's release",
+        "Independent failure domains, so a bug in one area can't take down unrelated functionality",
+        "Clear ownership boundaries, so each service maps to a team that can run and own it",
+        "A scalable path for growth, since domains with different traffic patterns could scale separately"
+      ],
+      "notes": "Worth being upfront that this wasn't the only option on the table. We considered a 'modular monolith' (same deployable, enforced internal boundaries) and scaling the existing monolith horizontally with more aggressive caching and read replicas. Both were rejected because they don't solve the core problem: a modular monolith still deploys and fails as one unit, and horizontal scaling doesn't fix coupling or blast radius. We also went in with eyes open that microservices add real operational cost - more infrastructure to run, more network calls, more places for things to go subtly wrong - and that trade-off is addressed head-on later in this deck rather than glossed over."
+    },
+    {
+      "layout": "content",
+      "kicker": "ARCHITECTURE",
+      "title": "Why events, not direct service-to-service calls",
+      "hook": "Direct calls between services just rebuild the monolith's coupling - over a network instead of in-process.",
+      "bullets": [
+        "Services publish events (e.g. \"order placed\") instead of calling each other directly",
+        "Any service can react to an event without the publisher needing to know who's listening",
+        "This removes the chains of synchronous calls that caused slow, fragile dependencies",
+        "New consumers can be added later without changing the services that publish events"
+      ],
+      "notes": "If services called each other directly and synchronously, we'd have recreated the monolith's coupling problem across a network - now with added latency and network failure modes. Event-driven architecture inverts this: a producer publishes a fact ('order placed', 'payment captured') to the event bus and doesn't know or care who consumes it. Consumers subscribe independently. This is what let us add the notifications service, for example, without touching orders, payments, or shipping code at all - it just started consuming events that already existed. The trade-off, covered later, is eventual consistency: there's a small window where different services can have a different view of the same order's state, which is a deliberate and acceptable trade for the decoupling benefit."
+    },
+    {
+      "layout": "content",
+      "kicker": "NEW ARCHITECTURE",
+      "title": "Order processing split into six services",
+      "hook": "Five business domains, plus the event bus that connects them.",
+      "bullets": [
+        "Orders - owns order creation, state, and lifecycle",
+        "Inventory - tracks stock levels and reservations",
+        "Shipping - handles carrier integration and label generation",
+        "Payments - processes charges, refunds, and payment state",
+        "Notifications - sends customer-facing emails and SMS on order events",
+        "Event bus (Kafka) - the shared backbone all five publish to and consume from"
+      ],
+      "notes": "Each of the five business services now owns its own data store - no more shared database. A service is the single source of truth for its own domain and exposes that state to others only through the events it publishes, not through direct database access. Kafka sits in the middle as the event bus: topics are organized per business event (order.placed, inventory.reserved, payment.captured, shipping.labeled, notification.sent), partitioned by order ID so that all events for a given order stay in order relative to each other, and consumed through consumer groups so each service can scale its own consumers independently. Failed message processing goes to a dead-letter queue for retry rather than silently dropping events. Each of the five business services is owned end-to-end (code, on-call, roadmap) by a single team; the event bus itself is owned by the platform team."
+    },
+    {
+      "layout": "content",
+      "kicker": "HOW IT WORKS",
+      "title": "Walking one order through the event bus",
+      "hook": "No service calls another directly - they all just react to events.",
+      "bullets": [
+        "Orders publishes \"order placed\" after validating the incoming request",
+        "Inventory consumes it, reserves stock, and publishes \"inventory reserved\"",
+        "Payments consumes that, charges the customer, and publishes \"payment captured\"",
+        "Shipping and notifications both react to \"payment captured\" independently"
+      ],
+      "notes": "Walking through this makes the 'why events' argument concrete. Each arrow here is a published event, not a function call - the publishing service has no idea which services, if any, are listening. Ordering within a single order's lifecycle is preserved because all its events share a partition key (the order ID), so a consumer always sees that order's events in the sequence they happened. If a consumer service is temporarily down, Kafka retains the events so nothing is lost - the consumer catches up when it comes back rather than the event being missed. Consumers are built to be idempotent (safe to process the same event twice) because at-least-once delivery means duplicates are possible under retry. Each hop is monitored independently so we can see exactly where in the chain an order is at any point, which is also how we debug a stuck order post-migration."
+    },
+    {
+      "layout": "section",
+      "number": "03",
+      "title": "The Rollout",
+      "subtitle": "Five months, migrated without a big-bang cutover"
+    },
+    {
+      "layout": "content",
+      "kicker": "APPROACH",
+      "title": "A phased rollout, not a big-bang cutover",
+      "hook": "We moved one domain at a time, running old and new in parallel until we trusted the new path.",
+      "bullets": [
+        "Started with the lowest-risk domain to prove the pattern before touching critical paths",
+        "Used a strangler-fig approach - the new service took traffic while the monolith stayed as fallback",
+        "Dual-wrote critical data during transition windows to compare old and new outputs",
+        "Each service went through a validation period before it became the sole source of truth"
+      ],
+      "notes": "We deliberately avoided a single cutover weekend for a system this central to revenue. The strangler-fig pattern means new traffic is gradually redirected to the new service while the monolith's equivalent code path keeps running as a safety net, until we're confident enough to retire it. During the overlap window for each domain, we dual-wrote so we could compare the new service's output against the monolith's for the same input, catching discrepancies before they reached customers. Each domain had an explicit go/no-go checkpoint before we considered its migration complete and removed the monolith fallback for that domain. The migration itself was run by a mix of a dedicated platform/migration effort to build the event bus and shared tooling, with each domain team owning the cutover of its own service."
+    },
+    {
+      "layout": "content",
+      "kicker": "TIMELINE",
+      "title": "Five months, one domain at a time",
+      "bullets": [
+        {"text": "Event bus stood up first, so every later migration had it to publish to", "level": 0},
+        {"text": "Lower-risk, lower-traffic domains migrated earlier to prove the pattern", "level": 0},
+        {"text": "Higher-risk domains - payments and orders - migrated later, with the most validation time", "level": 0},
+        {"text": "Monolith fully decommissioned for order processing once the last domain cut over", "level": 0}
+      ],
+      "notes": "ASSUMPTION FLAG for the presenter: the exact month-by-month sequence of which domain migrated in which month was not specified in the source material for this deck, so this slide intentionally states the sequencing logic (low-risk first, payments/orders last) rather than a fabricated month-by-month schedule. If you have the real per-service cutover dates, consider adding them here or in these notes before presenting, since this is exactly the kind of follow-up question a detail-oriented audience will ask. The general shape - event bus first, notifications-style low-risk domains next, payments and orders last because they carry the most risk and the most learning from earlier phases - is a reasonable and defensible sequencing rationale regardless of the exact dates."
+    },
+    {
+      "layout": "section",
+      "number": "04",
+      "title": "The Results",
+      "subtitle": "Three months of production data since launch"
+    },
+    {
+      "layout": "kpi",
+      "title": "Deploys got faster, outages went to zero",
+      "kpis": [
+        {"label": "Deploy time", "value": "6 min", "delta": "per service, down from 40 min"},
+        {"label": "Full-system outages", "value": "0", "delta": "in the 3 months since launch"},
+        {"label": "Partial outages", "value": "down from 2/mo", "delta": "pre-migration baseline"}
+      ],
+      "takeaway": "Each service now ships independently in minutes, and a failure in one no longer drags down the rest.",
+      "notes": "Deploy time dropped from 40 minutes to roughly 6 minutes per service - and critically, that's now a per-service number, so a small fix to notifications doesn't have to wait behind or risk a payments change. Zero full-system outages in the three months since launch is the headline result and directly validates the failure-isolation argument from the decision section. Be upfront if asked: three months is a meaningful but still relatively short track record, and we should keep watching this trend rather than declaring total victory after one quarter. Partial outages (pre-migration baseline was 2/month) are being tracked post-migration too; we don't yet have a full three-month comparable figure to put on the slide, so don't overstate it live - describe it as an improving trend if asked, not as a specific resolved number."
+    },
+    {
+      "layout": "two-column",
+      "title": "Before vs. after, side by side",
+      "left": {
+        "title": "Monolith",
+        "bullets": [
+          "40-minute deploys for any change, large or small",
+          "Shared process - one failure could cascade everywhere",
+          "Shared database across all five domains",
+          "One team's bug could block or break everyone's release"
+        ]
+      },
+      "right": {
+        "title": "Microservices + Kafka",
+        "bullets": [
+          "~6-minute deploys, per service, independently",
+          "Isolated failure domains - a bug stays contained to its service",
+          "Each service owns its own data",
+          "Teams ship on their own schedule, without cross-team blocking"
+        ]
+      },
+      "notes": "This side-by-side is meant to be the single slide someone screenshots and shares - it should stand alone without the rest of the deck. If asked what we gave up to get here, point to the next slide rather than improvising; the honest trade-offs are covered deliberately rather than left out."
+    },
+    {
+      "layout": "content",
+      "kicker": "TRADE-OFFS",
+      "title": "This solved failure isolation - it didn't solve everything for free",
+      "hook": "Decoupling the failure domains added real operational weight we're still carrying.",
+      "bullets": [
+        "More moving parts to monitor - six services and a message bus instead of one process",
+        "Eventual consistency - data across services can be briefly out of sync by design",
+        "Debugging a flow now means tracing an event across services, not reading one stack trace",
+        "On-call rotations had to be rebuilt per service instead of one shared rotation"
+      ],
+      "notes": "This slide exists so the deck doesn't read as a one-sided victory lap - a technical audience will ask about these costs if we don't raise them ourselves. We invested in distributed tracing with correlation IDs that follow an order across every service and event hop, specifically so debugging a stuck order doesn't mean manually checking five services and a Kafka topic by hand. Eventual consistency means, for a brief window, two services can disagree about an order's exact state (e.g. inventory reserved but payment not yet confirmed) - this is expected and handled by design, not a bug, but it's a mental model shift for anyone used to monolith-style immediate consistency. On-call previously was one rotation covering the whole monolith; now each service team owns its own on-call, which is more scalable but required real investment in runbooks and alerting per service rather than one shared playbook. Running Kafka itself is additional infrastructure the platform team now operates and monitors that didn't exist before."
+    },
+    {
+      "layout": "content",
+      "kicker": "LOOKING AHEAD",
+      "title": "Where we go from here",
+      "bullets": [
+        "Extend the event-driven pattern to the next domain due for a split",
+        "Keep investing in distributed tracing so cross-service debugging gets faster",
+        "Finish formalizing on-call and ownership docs now that service boundaries are stable",
+        "Share the migration playbook so other teams can reuse the pattern"
+      ],
+      "notes": "This is intentionally left general so the presenter can name the specific next domain or team if that's been decided by the time of the talk - fill in the actual name live if there's a confirmed answer; otherwise 'the next domain due for a split' is accurate as a forward-looking statement. Use this slide to open the floor for roadmap-shaped questions."
+    },
+    {
+      "layout": "closing",
+      "title": "Questions",
+      "bullets": [
+        "Full architecture docs and the migration playbook are available on request",
+        "Reach out to the orders platform team for a deep dive on any individual service"
+      ],
+      "contact": "Orders Platform Team",
+      "notes": "Leave this slide up for the Q&A portion. If a question goes deep into one service's internals (e.g. exact Kafka topic names, retry/DLQ configuration, or a specific incident's root cause), it's fine to say that's best taken to the platform team directly rather than improvising numbers that aren't in this deck."
+    }
+  ]
+}

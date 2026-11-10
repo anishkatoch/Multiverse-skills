@@ -1,0 +1,10 @@
+{
+  "eval_name": "hindi-app-launch-recap",
+  "prompt": "हमने पिछले महीने अपना नया मोबाइल ऐप लॉन्च किया था। लॉन्च के पहले 30 दिनों में 12,000 डाउनलोड हुए और हमारी रेटिंग 4.3 स्टार है। कृपया टीम के लिए एक छोटी प्रेजेंटेशन (pptx फ़ाइल) बनाइए जो हिंदी में हो, ताकि सभी लोग आसानी से समझ सकें। ज़्यादा लंबी ना हो, बस मुख्य बातें हों।",
+  "assertions": [
+    "The generated deck's slide titles, hooks, and bullets are written in natural Hindi (Devanagari script), not left in English and not a stiff literal word-for-word translation.",
+    "The outline/build uses a theme (likely an inline custom theme) with a font that actually supports Devanagari script (e.g. \"Nirmala UI\") rather than leaving Latin-only preset fonts in place.",
+    "The two numbers from the request (12,000 downloads in 30 days, 4.3-star rating) appear as a clear KPI-style callout rather than buried in a paragraph.",
+    "The deck is short (a handful of slides) per the explicit request that it not be too long and cover just the main points."
+  ]
+}

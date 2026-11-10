@@ -1,0 +1,20 @@
+{
+  "title": "Q3 Retention Review",
+  "theme": "corporate-blue",
+  "slides": [
+    {"layout": "title", "title": "Q3 Retention Review", "subtitle": "Growth & Customer Success · Nov 2026", "hook": "Churn dropped for the first time in four quarters."},
+    {"layout": "section", "number": "01", "title": "What happened"},
+    {"layout": "content", "kicker": "CONTEXT", "title": "Retention stalled for three straight quarters",
+     "hook": "Before the fix, here's the problem we were solving.",
+     "bullets": ["Monthly churn held at 4.1-4.4% from Q4 to Q2", "Mid-market accounts (50-200 seats) churned 2x faster than enterprise", "Root cause: onboarding handoff between sales and CS had no owner"]},
+    {"layout": "kpi", "title": "Q3 in numbers",
+     "kpis": [{"label": "Monthly churn", "value": "3.1%", "delta": "-1.0pt QoQ"},
+              {"label": "Mid-market churn", "value": "3.4%", "delta": "-2.6pt QoQ"},
+              {"label": "NRR", "value": "108%", "delta": "+6pt QoQ"}],
+     "takeaway": "The onboarding fix mainly closed the mid-market gap - enterprise churn was already healthy."},
+    {"layout": "two-column", "title": "Why churn dropped",
+     "left": {"title": "What we changed", "bullets": ["Named a single CS owner at handoff", "Automated a 30/60/90-day check-in cadence"]},
+     "right": {"title": "What we're watching", "bullets": ["Support ticket volume ticked up 12%", "Self-serve plan still has no owner"]}},
+    {"layout": "closing", "title": "Next: give self-serve the same fix", "bullets": ["Assign an owner for self-serve onboarding by Nov 30", "Re-measure mid-market churn in Q4 review"], "contact": "owner: cs-leadership@company.com"}
+  ]
+}

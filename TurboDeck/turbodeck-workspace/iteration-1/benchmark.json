@@ -1,0 +1,463 @@
+{
+  "metadata": {
+    "skill_name": "turbodeck",
+    "skill_path": "C:\\Users\\anees\\PycharmProjects\\pythonProject\\Skills\\TurboDeck\\turbodeck",
+    "executor_model": "claude-sonnet-5",
+    "analyzer_model": "claude-sonnet-5",
+    "timestamp": "2026-11-09T10:35:20Z",
+    "evals_run": [
+      "architecture-review-deck",
+      "hindi-app-launch-recap",
+      "monthly-signup-chart-deck",
+      "quarterly-team-update",
+      "seed-pitch-deck"
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": "architecture-review-deck",
+      "eval_name": "architecture-review-deck",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 222.7,
+        "tokens": 68955,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The deck establishes what the architecture change was before leaning on why it mattered.",
+          "passed": true,
+          "evidence": "Slide 4 (what the monolith looked like) precedes slide 5 (the cost/why: 40min deploys, 2 outages/mo) within the Problem section; slide 10 (what: six services) precedes the Results KPI slides."
+        },
+        {
+          "text": "Deploy time and outage-reduction KPIs are presented with a takeaway each.",
+          "passed": true,
+          "evidence": "Slide 5 and slide 16 both use the kpi layout (40min/2-outages and 6min/0-outages respectively) with explanatory takeaway text, plus a dedicated before/after slide 17."
+        },
+        {
+          "text": "The deck is noticeably more detailed, with the deepest detail in speaker notes rather than cluttering visible slides, per the user's explicit request.",
+          "passed": true,
+          "evidence": "20 slides, with per-slide notes ranging 290-1028 characters (e.g. slide 18 trade-offs note is 1028 chars) holding the heaviest detail, while visible slide text stays in short bullets."
+        },
+        {
+          "text": "The deck is understandable to engineers who weren't involved, without assumed shared knowledge.",
+          "passed": true,
+          "evidence": "Slide 2 explicitly states 'Most of you weren't in the room for this decision - this deck is the room,' and slide 9 explains the event-vs-direct-call rationale from first principles."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "hindi-app-launch-recap",
+      "eval_name": "hindi-app-launch-recap",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 125.2,
+        "tokens": 63143,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Slide titles, hooks, and bullets are written in natural Hindi, not left in English or stiffly translated.",
+          "passed": true,
+          "evidence": "e.g. hook '30 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 12,000 \u0921\u093e\u0909\u0928\u0932\u094b\u0921 \u0914\u0930 4.3 \u0938\u094d\u091f\u093e\u0930 \u0930\u0947\u091f\u093f\u0902\u0917' and closing '\u2014  \u091f\u0940\u092e \u0915\u0947 \u0936\u093e\u0928\u0926\u093e\u0930 \u0915\u093e\u092e \u0915\u0947 \u0932\u093f\u090f \u0927\u0928\u094d\u092f\u0935\u093e\u0926' read as natural Hindi phrasing, not literal translation."
+        },
+        {
+          "text": "Uses a theme with a Devanagari-capable font rather than the Latin-only presets.",
+          "passed": true,
+          "evidence": "Summary confirms an inline theme based on modern-dark with heading_font/body_font overridden to 'Nirmala UI'."
+        },
+        {
+          "text": "The two numbers (12,000 downloads, 4.3 rating) appear as a clear KPI-style callout.",
+          "passed": true,
+          "evidence": "Slide 2 kpi layout: '12,000 | \u0915\u0941\u0932 \u0921\u093e\u0909\u0928\u0932\u094b\u0921', '4.3 \u2605 | \u0914\u0938\u0924 \u0930\u0947\u091f\u093f\u0902\u0917', '30 \u0926\u093f\u0928 | \u0932\u0949\u0928\u094d\u091a \u0905\u0935\u0927\u093f', with a one-line takeaway."
+        },
+        {
+          "text": "The deck is short per the explicit 'not too long, just the main points' request.",
+          "passed": true,
+          "evidence": "3 slides total: title/hook, KPI, closing. No background or extra sections added beyond what was given."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "monthly-signup-chart-deck",
+      "eval_name": "monthly-signup-chart-deck",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 75.8,
+        "tokens": 57309,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The 6-month signup trend is rendered as a real chart, not a bullet list or KPI card.",
+          "passed": true,
+          "evidence": "Slide 2 uses a real LINE_MARKERS chart object (python-pptx CHART shape) for Jan-Jun signups, with a takeaway sentence below it."
+        },
+        {
+          "text": "The channel breakdown is rendered as a real chart, not a bullet list of percentages.",
+          "passed": true,
+          "evidence": "Slide 3 uses a real PIE chart object for the 4-channel breakdown, with a takeaway sentence."
+        },
+        {
+          "text": "Each chart slide has a one-line takeaway.",
+          "passed": true,
+          "evidence": "Slide 2: 'Signups grew every month for six straight months, up 88% from January to June.' Slide 3: 'Organic and paid ads together drive 75% of signups...'"
+        },
+        {
+          "text": "The deck stays focused and short per 'keep it focused, nothing fancy'.",
+          "passed": true,
+          "evidence": "4 slides total: title, growth chart, channel chart, takeaways. No invented extra sections."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "quarterly-team-update",
+      "eval_name": "quarterly-team-update",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 109.8,
+        "tokens": 59576,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The deck says the onboarding flow shipped in Q3 2026, not Q2, without presenting both conflicting versions as unresolved.",
+          "passed": true,
+          "evidence": "Slide 2: 'Shipped the new onboarding flow - live since August 2026' (Q3), no Q2 mention left dangling."
+        },
+        {
+          "text": "The deck does not confidently present a specific NPS number as verified fact - it flags it, omits it, or asks.",
+          "passed": true,
+          "evidence": "Slide 4 shows 'TBD | NPS - Q3 2026' with explanatory text that the real figure needs dashboard confirmation; no invented 38."
+        },
+        {
+          "text": "The ticket-volume KPI is presented with a short takeaway connecting it to the onboarding launch and/or hire.",
+          "passed": true,
+          "evidence": "Slide 3: 412->290, -30% QoQ, with takeaway text attributing the drop to the onboarding flow plus the additional support hire."
+        },
+        {
+          "text": "The deck is written so a teammate who wasn't in the retro could follow it unaided.",
+          "passed": true,
+          "evidence": "Each slide has a kicker + hook + explicit context (e.g. 'live since August 2026' spelled out rather than assumed known)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "seed-pitch-deck",
+      "eval_name": "seed-pitch-deck",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 147.9,
+        "tokens": 62983,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "A real .pptx file was created (via python-pptx / the bundled build_deck.py script), not just a text outline or markdown description of slides.",
+          "passed": true,
+          "evidence": "driftwood-seed-pitch.pptx (9 slides) built via scripts/build_deck.py per the skill's workflow; outline.json saved alongside it."
+        },
+        {
+          "text": "The deck covers the full pitch arc the user implied without spelling out: problem, solution, traction with the actual numbers, and an ask with $1.2M / 2 ops hires / 150-maker target.",
+          "passed": true,
+          "evidence": "Slides 2 (PROBLEM), 3 (SOLUTION), 4 (traction KPI: 42 makers, 15% MoM, $340/mo, ~$14.3K MRR), 8 (THE ASK: $1.2M, 2 ops hires)."
+        },
+        {
+          "text": "Slide content is short and punchy reflecting the user's explicit \"keep it tight\" instruction.",
+          "passed": true,
+          "evidence": "9 slides total, each with 3-5 short bullets; no extraneous sections (no invented TAM/market-size slide, no team slide fabricated)."
+        },
+        {
+          "text": "A theme was picked deliberately with a stated reason, not a silent default.",
+          "passed": true,
+          "evidence": "Summary.md states theme=warm-startup, chosen for an energetic early-stage/craft-adjacent pitch over generic corporate-blue."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "architecture-review-deck",
+      "eval_name": "architecture-review-deck",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 308.9,
+        "tokens": 78319,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The deck establishes what the architecture change was before leaning on why it mattered.",
+          "passed": true,
+          "evidence": "Slide 3 ('What We Were Running Before') precedes slide 4 ('Why We Couldn't Just Patch It', with the cost KPIs)."
+        },
+        {
+          "text": "Deploy time and outage-reduction KPIs are presented with a takeaway each.",
+          "passed": true,
+          "evidence": "Slides 12-14 cover deploy time (40min->6min) and outages (2/mo->0) with before/after framing and a side-by-side table."
+        },
+        {
+          "text": "The deck is noticeably more detailed, with the deepest detail in speaker notes rather than cluttering visible slides, per the user's explicit request.",
+          "passed": false,
+          "evidence": "Notes are much shorter than the with-skill run (115-651 chars vs. 290-1028) and the deepest material - a full event-driven primer (slide 7), a service-ownership table (slide 8), a glossary (slide 18), and an invented FAQ (slide 19) - was put directly on visible slides rather than pushed to notes, which is the opposite of what the user asked for ('put the really in-the-weeds stuff in notes if it'd clutter the slide'). The executor's own summary also notes it invented specifics (event names, headcount, options-considered) not present in the brief to fill gaps, which the brief didn't ask for and risks presenting fabricated detail as real to an audience that can't tell the difference."
+        },
+        {
+          "text": "The deck is understandable to engineers who weren't involved, without assumed shared knowledge.",
+          "passed": true,
+          "evidence": "Slide 7's event-driven primer and slide 18's glossary directly serve readers without prior context, arguably even more thoroughly than the with-skill version on this specific axis."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "hindi-app-launch-recap",
+      "eval_name": "hindi-app-launch-recap",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 103.7,
+        "tokens": 55804,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Slide titles, hooks, and bullets are written in natural Hindi, not left in English or stiffly translated.",
+          "passed": true,
+          "evidence": "e.g. '\u092e\u091c\u092c\u0942\u0924 \u0936\u0941\u0930\u0941\u0906\u0924 \u2014 30 \u0926\u093f\u0928\u094b\u0902 \u092e\u0947\u0902 12,000 \u0921\u093e\u0909\u0928\u0932\u094b\u0921 \u090f\u0915 \u0905\u091a\u094d\u091b\u093e \u0938\u0902\u0915\u0947\u0924 \u0939\u0948' reads as natural Hindi, not a literal translation."
+        },
+        {
+          "text": "Uses a theme with a Devanagari-capable font rather than the Latin-only presets.",
+          "passed": true,
+          "evidence": "Executor's summary confirms 'Nirmala UI' was explicitly set on all Hindi text runs."
+        },
+        {
+          "text": "The two numbers (12,000 downloads, 4.3 rating) appear as a clear KPI-style callout.",
+          "passed": true,
+          "evidence": "Slide 3 has two large stat-card-style callouts: '12,000 | \u0915\u0941\u0932 \u0921\u093e\u0909\u0928\u0932\u094b\u0921' and '4.3 \u2605 | \u0914\u0938\u0924 \u092f\u0942\u091c\u093c\u0930 \u0930\u0947\u091f\u093f\u0902\u0917'."
+        },
+        {
+          "text": "The deck is short per the explicit 'not too long, just the main points' request.",
+          "passed": true,
+          "evidence": "5 slides (title, background, metrics, what-it-means, thank-you) - still short overall and not padded with invented content, but noticeably less tight than the with-skill run's 3-slide version of the same brief; the extra background/meaning slides restate given facts rather than add new ones, so this is a borderline pass rather than a clean one."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "monthly-signup-chart-deck",
+      "eval_name": "monthly-signup-chart-deck",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 107.8,
+        "tokens": 55939,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The 6-month signup trend is rendered as a real chart, not a bullet list or KPI card.",
+          "passed": true,
+          "evidence": "Slide 2 uses a real COLUMN_CLUSTERED chart object with data labels. Note: a column chart is a defensible choice but less ideal than a line chart for a continuous month-over-month trend (the thing the skill's own guidance recommends) - a quality nuance, not a failure of this assertion, since it is a real chart either way."
+        },
+        {
+          "text": "The channel breakdown is rendered as a real chart, not a bullet list of percentages.",
+          "passed": true,
+          "evidence": "Slide 3 uses a real PIE chart object plus a supporting breakdown list."
+        },
+        {
+          "text": "Each chart slide has a one-line takeaway.",
+          "passed": true,
+          "evidence": "Slide 2 has a 'KEY TAKEAWAYS' block with growth callouts; slide 3 has an explanatory sentence about channel concentration."
+        },
+        {
+          "text": "The deck stays focused and short per 'keep it focused, nothing fancy'.",
+          "passed": true,
+          "evidence": "4 slides total, same count as the with-skill run - no padding here."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "quarterly-team-update",
+      "eval_name": "quarterly-team-update",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 122.7,
+        "tokens": 57009,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "The deck says the onboarding flow shipped in Q3 2026, not Q2, without presenting both conflicting versions as unresolved.",
+          "passed": true,
+          "evidence": "Slide 2: 'The new onboarding flow went live in August 2026, placing it in Q3 (not Q2, as some early notes suggested).' Explicitly resolved, even narrates the correction."
+        },
+        {
+          "text": "The deck does not confidently present a specific NPS number as verified fact - it flags it, omits it, or asks.",
+          "passed": true,
+          "evidence": "Slide 4: '31 -> ?' with 'Q3 figure unconfirmed - pending dashboard check' and a note about the source typo. No invented 38."
+        },
+        {
+          "text": "The ticket-volume KPI is presented with a short takeaway connecting it to the onboarding launch and/or hire.",
+          "passed": true,
+          "evidence": "Slide 3: 412 -> 290, -30%, with bullets naming the onboarding flow and the extra hire as drivers."
+        },
+        {
+          "text": "The deck is written so a teammate who wasn't in the retro could follow it unaided.",
+          "passed": true,
+          "evidence": "Slide 1 even states 'Internal use only' and slide 2 spells out the date correction explicitly for a reader who wasn't there."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": "seed-pitch-deck",
+      "eval_name": "seed-pitch-deck",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.75,
+        "passed": 3,
+        "failed": 1,
+        "total": 4,
+        "time_seconds": 194.8,
+        "tokens": 65503,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "A real .pptx file was created, not just a text outline or markdown description of slides.",
+          "passed": true,
+          "evidence": "Driftwood_Seed_Pitch_Deck.pptx (11 slides) built directly with python-pptx."
+        },
+        {
+          "text": "The deck covers the full pitch arc the user implied without spelling out.",
+          "passed": true,
+          "evidence": "Slides 2 (THE PROBLEM), 3 (THE SOLUTION), 4 (TRACTION), 10 (THE ASK) all present with the right numbers."
+        },
+        {
+          "text": "Slide content is short and punchy reflecting the user's explicit \"keep it tight\" instruction.",
+          "passed": false,
+          "evidence": "11 slides vs. the 9 the with-skill run produced for the same brief. Includes a MARKET slide not implied by the prompt that states 'the US home furniture market is worth well over $100B annually' - a specific figure the user never supplied and the deck presents as fact, which cuts against both brevity and the 'don't pad a tight deck' instruction. Also adds a separate WHY US slide beyond what's needed to answer the ask."
+        },
+        {
+          "text": "A theme was picked deliberately with a stated reason, not a silent default.",
+          "passed": true,
+          "evidence": "Summary.md states a custom driftwood brown/ink/sand palette chosen for a workshop-craft tone."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 136.28,
+        "stddev": 54.9664,
+        "min": 75.8,
+        "max": 222.7
+      },
+      "tokens": {
+        "mean": 62393.2,
+        "stddev": 4408.8828,
+        "min": 57309,
+        "max": 68955
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.9,
+        "stddev": 0.1369,
+        "min": 0.75,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 167.58,
+        "stddev": 87.1504,
+        "min": 103.7,
+        "max": 308.9
+      },
+      "tokens": {
+        "mean": 62514.8,
+        "stddev": 9712.0015,
+        "min": 55804,
+        "max": 78319
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.10",
+      "time_seconds": "-31.3",
+      "tokens": "-122"
+    }
+  },
+  "notes": [
+    "Across 5 cases, with_skill discriminates cleanly on 2 (seed-pitch-deck, architecture-review-deck) and doesn't discriminate at all on 3 (quarterly-team-update, monthly-signup-chart-deck, hindi-app-launch-recap) - both configs scored 4/4 on those three. Sonnet 5's baseline is strong on its own: it already avoids inventing an unconfirmed NPS number, already reaches for real line/pie/column charts without being told to, and already writes natural (not word-for-word) Hindi with a correct Devanagari font. The skill's main proven value so far is restraint and fidelity under pressure (not padding a 'keep it tight' pitch deck, not inventing a TAM figure, not cramming notes-worthy detail onto visible slides) rather than raw capability the baseline lacks.",
+    "monthly-signup-chart-deck: both configs produced a real chart for both data points (line/pie for with_skill, column/pie for without_skill) and both stayed to 4 slides - a genuine tie. The only difference is chart-type appropriateness: with_skill used a line chart for the 6-month trend per its own stated guidance ('line for trends over time'), without_skill used column - a defensible but less ideal choice for continuous monthly data.",
+    "hindi-app-launch-recap: both configs wrote genuinely natural Hindi (not stilted translation) with a correct Devanagari font (Nirmala UI) without being told the specific font name - both answered correctly. The only difference was slide count (3 vs 5) - without_skill added a background slide and a 'what it means' slide that restate given facts rather than invent new ones, so it's not a fidelity failure, just looser adherence to 'not too long.'",
+    "Time/token cost is not consistently higher for with_skill across all 5 cases: faster/cheaper on 3 of 5, slower on 2. The fixed overhead of reading SKILL.md + references doesn't dominate - task complexity and how much the baseline ends up padding matter more.",
+    "These 5 cases were run before the skill was renamed from 'slideforge' to 'turbodeck' and before the chart-opt-in policy, theme-consistency fix, and visual design upgrade (gradient accents, title rules, KPI card redesign) landed - the underlying build_deck.py/check_layout.py logic is the same, only the name and later cosmetic/design layers changed, so these numbers still reflect the current skill's core behavior."
+  ]
+}

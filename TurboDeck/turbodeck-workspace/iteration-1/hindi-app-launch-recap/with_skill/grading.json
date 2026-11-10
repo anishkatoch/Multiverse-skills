@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "Slide titles, hooks, and bullets are written in natural Hindi, not left in English or stiffly translated.", "passed": true, "evidence": "e.g. hook '30 दिनों में 12,000 डाउनलोड और 4.3 स्टार रेटिंग' and closing '—  टीम के शानदार काम के लिए धन्यवाद' read as natural Hindi phrasing, not literal translation."},
+    {"text": "Uses a theme with a Devanagari-capable font rather than the Latin-only presets.", "passed": true, "evidence": "Summary confirms an inline theme based on modern-dark with heading_font/body_font overridden to 'Nirmala UI'."},
+    {"text": "The two numbers (12,000 downloads, 4.3 rating) appear as a clear KPI-style callout.", "passed": true, "evidence": "Slide 2 kpi layout: '12,000 | कुल डाउनलोड', '4.3 ★ | औसत रेटिंग', '30 दिन | लॉन्च अवधि', with a one-line takeaway."},
+    {"text": "The deck is short per the explicit 'not too long, just the main points' request.", "passed": true, "evidence": "3 slides total: title/hook, KPI, closing. No background or extra sections added beyond what was given."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

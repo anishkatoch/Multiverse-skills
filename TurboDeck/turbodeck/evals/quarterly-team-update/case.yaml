@@ -1,0 +1,16 @@
+schema_version: "1.1"
+name: quarterly-team-update
+expected_outcome: |
+  A short (~5-6 slide) real .pptx recap deck that someone who wasn't in the Q3
+  retro could read and understand on its own. It should use the onboarding-flow
+  launch quarter the notes settle on (Q3 2026, since the notes self-correct from
+  "Q2" to "Q3"), use the actual ticket-volume numbers as a KPI (412 -> 290, ~30%
+  drop) with a one-line takeaway connecting it to the onboarding launch and the
+  extra support hire, and should NOT confidently invent or silently restate the
+  NPS number as a fixed fact - the notes explicitly say the author isn't sure and
+  doesn't have dashboard access, so the deck should either flag that figure as
+  needing confirmation, omit it, or ask the user about it, rather than quietly
+  picking 31 or 38 and presenting it as verified. It should cover team growth
+  (7 -> 9 people) and the stated Q4 goals. Theme should be an internal/informal
+  choice (not aggressively corporate/client-facing) since the user said "nothing
+  client-facing."

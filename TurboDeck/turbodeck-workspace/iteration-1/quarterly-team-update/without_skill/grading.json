@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The deck says the onboarding flow shipped in Q3 2026, not Q2, without presenting both conflicting versions as unresolved.", "passed": true, "evidence": "Slide 2: 'The new onboarding flow went live in August 2026, placing it in Q3 (not Q2, as some early notes suggested).' Explicitly resolved, even narrates the correction."},
+    {"text": "The deck does not confidently present a specific NPS number as verified fact - it flags it, omits it, or asks.", "passed": true, "evidence": "Slide 4: '31 -> ?' with 'Q3 figure unconfirmed - pending dashboard check' and a note about the source typo. No invented 38."},
+    {"text": "The ticket-volume KPI is presented with a short takeaway connecting it to the onboarding launch and/or hire.", "passed": true, "evidence": "Slide 3: 412 -> 290, -30%, with bullets naming the onboarding flow and the extra hire as drivers."},
+    {"text": "The deck is written so a teammate who wasn't in the retro could follow it unaided.", "passed": true, "evidence": "Slide 1 even states 'Internal use only' and slide 2 spells out the date correction explicitly for a reader who wasn't there."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

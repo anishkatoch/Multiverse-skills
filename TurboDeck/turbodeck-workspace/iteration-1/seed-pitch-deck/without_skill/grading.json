@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "A real .pptx file was created, not just a text outline or markdown description of slides.", "passed": true, "evidence": "Driftwood_Seed_Pitch_Deck.pptx (11 slides) built directly with python-pptx."},
+    {"text": "The deck covers the full pitch arc the user implied without spelling out.", "passed": true, "evidence": "Slides 2 (THE PROBLEM), 3 (THE SOLUTION), 4 (TRACTION), 10 (THE ASK) all present with the right numbers."},
+    {"text": "Slide content is short and punchy reflecting the user's explicit \"keep it tight\" instruction.", "passed": false, "evidence": "11 slides vs. the 9 the with-skill run produced for the same brief. Includes a MARKET slide not implied by the prompt that states 'the US home furniture market is worth well over $100B annually' - a specific figure the user never supplied and the deck presents as fact, which cuts against both brevity and the 'don't pad a tight deck' instruction. Also adds a separate WHY US slide beyond what's needed to answer the ask."},
+    {"text": "A theme was picked deliberately with a stated reason, not a silent default.", "passed": true, "evidence": "Summary.md states a custom driftwood brown/ink/sand palette chosen for a workshop-craft tone."}
+  ],
+  "summary": {"passed": 3, "failed": 1, "total": 4, "pass_rate": 0.75}
+}

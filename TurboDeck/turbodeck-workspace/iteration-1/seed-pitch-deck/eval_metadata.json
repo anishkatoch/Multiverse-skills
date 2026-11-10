@@ -1,0 +1,10 @@
+{
+  "eval_name": "seed-pitch-deck",
+  "prompt": "I'm raising a seed round for my startup, Driftwood. We help small furniture makers sell direct-to-consumer by handling the logistics side - warehousing, shipping, returns - so they can stay focused on making stuff instead of dealing with freight carriers. We charge a per-item fee plus a monthly storage fee.\n\nWe have 42 makers on the platform, growing about 15% month over month for the last 4 months. Average revenue per maker is $340/month. We're pre-seed, raising $1.2M to hire 2 ops people and get to 150 makers in 12 months.\n\nCan you put together a pitch deck for investors? I need to send this to a few angel investors this week, so keep it tight - these people see a hundred decks, I don't want it to drag.",
+  "assertions": [
+    "A real .pptx file was created (via python-pptx / the bundled build_deck.py script), not just a text outline or markdown description of slides.",
+    "The deck covers the full pitch arc the user implied without spelling out: a problem/context slide, a slide explaining what Driftwood does, a traction slide with the actual numbers (42 makers, ~15% MoM growth, $340/maker/month), and an ask slide with the $1.2M raise, the 2 ops hires, and the 150-maker 12-month target.",
+    "Slide content is short and punchy (brief bullets, not paragraphs) reflecting the user's explicit \"keep it tight\" instruction, rather than a long, dense deck.",
+    "Claude picked a theme deliberately for a startup pitch context (stated which theme/colors and why) rather than silently using whatever the default happens to be with no explanation."
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "eval_name": "monthly-signup-chart-deck",
+  "prompt": "I run marketing for a B2B SaaS company. Can you build me a deck for our monthly leadership sync covering two things:\n\n1. Signup growth over the last 6 months: Jan 850, Feb 910, Mar 1020, Apr 1180, May 1340, Jun 1600 signups.\n2. How signups break down by channel this quarter: Organic 45%, Paid ads 30%, Referral 15%, Partnerships 10%.\n\nKeep it focused - this is just for our monthly sync, nothing fancy.",
+  "assertions": [
+    "The 6-month signup trend (850 -> 1600) is rendered as a real chart (a python-pptx chart object, e.g. the skill's chart layout with chart_type \"line\"), not just a bullet list or a single KPI card.",
+    "The channel breakdown (Organic 45% / Paid ads 30% / Referral 15% / Partnerships 10%) is rendered as a real chart (pie, or column/bar comparing the four channels), not just a bullet list of percentages.",
+    "Each chart slide has a one-line takeaway explaining what the data means, not just the raw chart with no interpretation.",
+    "The deck stays focused and short per \"keep it focused, nothing fancy\" - a handful of slides, not a sprawling deck with invented extra sections."
+  ]
+}

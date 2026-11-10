@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "A real .pptx file was created (via python-pptx / the bundled build_deck.py script), not just a text outline or markdown description of slides.", "passed": true, "evidence": "driftwood-seed-pitch.pptx (9 slides) built via scripts/build_deck.py per the skill's workflow; outline.json saved alongside it."},
+    {"text": "The deck covers the full pitch arc the user implied without spelling out: problem, solution, traction with the actual numbers, and an ask with $1.2M / 2 ops hires / 150-maker target.", "passed": true, "evidence": "Slides 2 (PROBLEM), 3 (SOLUTION), 4 (traction KPI: 42 makers, 15% MoM, $340/mo, ~$14.3K MRR), 8 (THE ASK: $1.2M, 2 ops hires)."},
+    {"text": "Slide content is short and punchy reflecting the user's explicit \"keep it tight\" instruction.", "passed": true, "evidence": "9 slides total, each with 3-5 short bullets; no extraneous sections (no invented TAM/market-size slide, no team slide fabricated)."},
+    {"text": "A theme was picked deliberately with a stated reason, not a silent default.", "passed": true, "evidence": "Summary.md states theme=warm-startup, chosen for an energetic early-stage/craft-adjacent pitch over generic corporate-blue."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

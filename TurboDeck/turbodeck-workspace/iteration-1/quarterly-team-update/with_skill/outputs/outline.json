@@ -1,0 +1,66 @@
+{
+  "title": "Q3 2026 Team Retro Recap",
+  "theme": "warm-startup",
+  "slides": [
+    {
+      "layout": "title",
+      "hook": "Support tickets dropped 30% this quarter.",
+      "title": "Q3 2026 Retro Recap",
+      "subtitle": "What shipped, what moved, and what's next for the team",
+      "notes": "This deck recaps the Q3 2026 team retro for anyone who wasn't in the room. It should stand on its own - no extra context needed."
+    },
+    {
+      "layout": "content",
+      "kicker": "Q3 HIGHLIGHTS",
+      "title": "What happened this quarter",
+      "hook": "Three moves shaped Q3's results.",
+      "bullets": [
+        "Shipped the new onboarding flow - live since August 2026",
+        "Added one more person to the support team",
+        "Grew the overall team from 7 to 9 people"
+      ],
+      "notes": "Source note originally logged the onboarding launch as a Q2 ship, then self-corrected: it went live in August 2026, which is Q3. Using Q3 throughout this deck."
+    },
+    {
+      "layout": "kpi",
+      "title": "Support ticket volume is down sharply",
+      "kpis": [
+        {"label": "Q2 2026 tickets", "value": "412"},
+        {"label": "Q3 2026 tickets", "value": "290", "delta": "-30% QoQ"}
+      ],
+      "takeaway": "The new onboarding flow (live since August) plus one additional support hire drove the roughly 30% drop in ticket volume.",
+      "notes": "412 -> 290 is a 29.6% decrease, rounded to ~30% per the retro notes."
+    },
+    {
+      "layout": "kpi",
+      "title": "Team growth and customer sentiment",
+      "kpis": [
+        {"label": "Team size", "value": "9", "delta": "+2 since start of Q2"},
+        {"label": "NPS - Q2 2026", "value": "31"},
+        {"label": "NPS - Q3 2026", "value": "TBD"}
+      ],
+      "takeaway": "Headcount grew from 7 to 9 this quarter. Q3 NPS is marked TBD: the retro notes logged it as flat at 31, but the note-taker flagged that as likely wrong and couldn't confirm the real number (possibly ~38) without dashboard access - we'll update this once it's verified.",
+      "notes": "Do not present 38 as confirmed - the author explicitly said they'd need to check the dashboard. This differs from the onboarding-date issue, which the notes resolved themselves; this one stays an open item."
+    },
+    {
+      "layout": "content",
+      "kicker": "LOOKING AHEAD",
+      "title": "Q4 2026 goals",
+      "hook": "Three targets for next quarter.",
+      "bullets": [
+        "Get support tickets under 250 for the quarter",
+        "Ship the refund self-service feature",
+        "Onboard 2 more hires"
+      ]
+    },
+    {
+      "layout": "closing",
+      "title": "Onward to Q4",
+      "bullets": [
+        "Keep the ticket-volume trend going",
+        "Ship refund self-service",
+        "Grow the team to 11 people"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "expectations": [
+    {"text": "The deck establishes what the architecture change was before leaning on why it mattered.", "passed": true, "evidence": "Slide 4 (what the monolith looked like) precedes slide 5 (the cost/why: 40min deploys, 2 outages/mo) within the Problem section; slide 10 (what: six services) precedes the Results KPI slides."},
+    {"text": "Deploy time and outage-reduction KPIs are presented with a takeaway each.", "passed": true, "evidence": "Slide 5 and slide 16 both use the kpi layout (40min/2-outages and 6min/0-outages respectively) with explanatory takeaway text, plus a dedicated before/after slide 17."},
+    {"text": "The deck is noticeably more detailed, with the deepest detail in speaker notes rather than cluttering visible slides, per the user's explicit request.", "passed": true, "evidence": "20 slides, with per-slide notes ranging 290-1028 characters (e.g. slide 18 trade-offs note is 1028 chars) holding the heaviest detail, while visible slide text stays in short bullets."},
+    {"text": "The deck is understandable to engineers who weren't involved, without assumed shared knowledge.", "passed": true, "evidence": "Slide 2 explicitly states 'Most of you weren't in the room for this decision - this deck is the room,' and slide 9 explains the event-vs-direct-call rationale from first principles."}
+  ],
+  "summary": {"passed": 4, "failed": 0, "total": 4, "pass_rate": 1.0}
+}

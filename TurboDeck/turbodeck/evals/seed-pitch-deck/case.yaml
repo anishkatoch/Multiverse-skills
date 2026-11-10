@@ -1,0 +1,14 @@
+schema_version: "1.1"
+name: seed-pitch-deck
+expected_outcome: |
+  A real .pptx file for an investor pitch deck. It should cover the standard pitch
+  arc even though the user didn't name every section: problem, solution/what Driftwood
+  does, traction (42 makers, 15% MoM growth, $340/maker/month), the ask ($1.2M,
+  2 ops hires, target of 150 makers in 12 months), and a clear next step/contact slide.
+  Content should be short and punchy per the user's "keep it tight" request - this is
+  a case where the user gave an explicit detail-level preference (short), so the
+  deck should default to brevity even more than usual, with any elaboration pushed
+  to speaker notes rather than onto the slide. A theme suited to a startup pitch
+  (e.g. warm-startup, or another deliberate choice with a stated reason) rather than
+  a generic default. Each slide should open with a hook-style line rather than a flat
+  title restatement.
